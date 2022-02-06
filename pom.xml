@@ -4,7 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>isw2-deliverable2</groupId>
     <artifactId>isw2-deliverable2</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
+    <properties>
+        <sonar.organization>massimostanzione</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jgit</groupId>
