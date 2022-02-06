@@ -150,7 +150,7 @@ public class TicketBugHandler {
                 if (b.getBugLifecycle().getFV().equals(v)) {
                     val += "F";
                 }
-                record.appendLabel(val != "" ? val : "-");
+                record.appendLabel(!val.equals("") ? val : "-");
             }
             List<JIRAAffectedVersionsCheck> errors = new ArrayList<>();
             errors.addAll(b.getBugLifecycle().getJIRACheck());

@@ -36,7 +36,9 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
         try {
             File file = new File(outname);
             file.getParentFile().mkdirs();
-            file.createNewFile();
+            boolean alreadyExists = file.createNewFile();
+            if (alreadyExists)
+                log.finer("ARFF target file already exists.");
             fileWriter = new FileWriter(file);
             if (dataset.size() > 0) {
                 fileWriter.append(generateHeader(relationName, dataset.size(), dataset.get(0).size()));

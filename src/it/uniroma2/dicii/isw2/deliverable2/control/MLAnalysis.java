@@ -25,6 +25,7 @@ import weka.filters.unsupervised.attribute.StringToNominal;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -114,8 +115,11 @@ public class MLAnalysis {
                                     "./output/" + projName + "/dataset/dataset.csv");
                             Double testDefectivePrc = determinePrc("./output/" + projName + "/dataset/testing/TE" + (index + 1) + ".csv",
                                     "./output/" + projName + "/dataset/dataset.csv");
-                            double trainPrc = ((double) 100 * Files.lines(Paths.get("./output/" + projName + "/dataset/training/TR" + (index) + ".csv")).count() - 1)
-                                    / (Files.readAllLines(Paths.get("./output/" + projName + "/dataset/dataset.csv")).size() - 1);
+                            double trainPrc;
+                            Path trainPath = Paths.get("./output/" + projName + "/dataset/training/TR" + (index) + ".csv");
+                            Path datasetPath = Paths.get("./output/" + projName + "/dataset/dataset.csv");
+                            trainPrc = ((double) 100 * Files.lines(trainPath).count() - 1)
+                                    / (Files.readAllLines(datasetPath).size() - 1);
 
                             MLRecord ml = new MLRecord();
 
@@ -167,11 +171,16 @@ public class MLAnalysis {
             e.printStackTrace();
         }
         Integer trueCnt = 0;
-        Integer totLinesCnt = totLines.size() - 1;
+        Integer totLinesCnt = 0;
+        try {
+            totLinesCnt = totLines.size() - 1;
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
         for (var i = 0; i < minClassLines.size(); i++) {
             if (minClassLines.get(i).contains("true"))
                 trueCnt += 1;
         }
-        return Double.valueOf(100 * trueCnt / totLinesCnt);
+        return Double.valueOf(100 * trueCnt / (double) totLinesCnt);
     }
 }

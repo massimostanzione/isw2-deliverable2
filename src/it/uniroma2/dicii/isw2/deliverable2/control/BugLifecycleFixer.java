@@ -44,7 +44,7 @@ public class BugLifecycleFixer {
         for (Integer i = bl.getIV().getSortedID(); i <= bl.getFV().getSortedID() - 1; i++) {
             Boolean found = false;
             for (Version v : bl.getAVs()) {
-                if (v.getSortedID() == i) {
+                if (v.getSortedID().equals(i)) {
                     found = true;
                     break;
                 }
