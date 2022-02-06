@@ -26,7 +26,7 @@ public class LOCTouched extends Metric {
     }
 
     @Override
-    public Float compute(Measure m, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+    public Float compute(Measure m, MeasuredClass mc, Commit commit, ObjectLoader loader, DiffFormatter df,
                          DiffEntry diff, Integer[] locs)
             throws IOException {
         return (float) (locs[0]+locs[1]);

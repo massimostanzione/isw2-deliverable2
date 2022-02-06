@@ -140,11 +140,9 @@ public class ProjectAnalyzer {
                     e.printStackTrace();
                 }
                 // Compute/update metrics
-                Integer locs[]={addedLOCs, removedLOCs};
-                m.computeMetrics(mc, v, iteratedCommit, loader, df, diff, locs);
-                if (Boolean.FALSE.equals(m.isBuggy())) {
-                    m.setBuggy(checkBugginess(mc, iteratedCommit));
-                }
+                Integer[] locs = {addedLOCs, removedLOCs};
+                m.computeMetrics(mc, iteratedCommit, loader, df, diff, locs);
+                m.setBuggy(postMeasureCheck(m.isBuggy(), mc, iteratedCommit));
                 if (mc.atVersion(v) == null) {
                     mc.getMeasures().add(m);
                 }
@@ -152,6 +150,13 @@ public class ProjectAnalyzer {
                 break;
             }
         }
+    }
+
+    private Boolean postMeasureCheck(Boolean buggy, MeasuredClass mc, Commit iteratedCommit) {
+        if (Boolean.FALSE.equals(buggy)) {
+             return checkBugginess(mc, iteratedCommit);
+        }
+        return true;
     }
 
     /**

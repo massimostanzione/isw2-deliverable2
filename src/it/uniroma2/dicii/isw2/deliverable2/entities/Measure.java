@@ -133,10 +133,10 @@ public class Measure extends ExportableAsDatasetRecord {
      * @param removedLOCs  LOCs removed in a commit
      * @param author       author of a single commit
      */
-    public void computeMetrics(MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+    public void computeMetrics(MeasuredClass mc, Commit commit, ObjectLoader loader, DiffFormatter df,
                                DiffEntry diff, Integer[] locs) {
         for (Metric m : this.getMetricsAsList()) {
-            m.executeComputation(this, mc, v, commit, loader, df, diff, locs);
+            m.executeComputation(this, mc, commit, loader, df, diff, locs);
         }
     }
 

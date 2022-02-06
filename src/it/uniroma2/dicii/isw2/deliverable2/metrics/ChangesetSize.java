@@ -26,7 +26,7 @@ public class ChangesetSize extends Metric {
     }
 
     @Override
-    public Float compute(Measure m, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+    public Float compute(Measure m, MeasuredClass mc, Commit commit, ObjectLoader loader, DiffFormatter df,
                          DiffEntry diff, Integer[] locs)
             throws IOException {
         return Float.valueOf(commit.getTouchedFiles().size());

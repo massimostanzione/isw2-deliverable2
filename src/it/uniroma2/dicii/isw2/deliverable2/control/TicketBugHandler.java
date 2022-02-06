@@ -78,7 +78,7 @@ public class TicketBugHandler {
                         if (b.getBugLifecycle() != null) {
                             bugList.add(b);
                             proportionAvgNum += b.getBugLifecycle().getProportionContribute();
-                            n += b.getBugLifecycle().isIVPredicionNeeded() ? 0 : 1;
+                            n += checkIfIVPredictionNeeded(b.getBugLifecycle());
                         }
                     }
                     tickets.add(iteratedTicket);
@@ -103,6 +103,10 @@ public class TicketBugHandler {
         CSVExporterPrinter.getSingletonInstance().convertAndExport(bugList, root + projName + "/inspection/bugs.csv");
         printToGraphicVisualizer(projName, bugList, versionList);
         return bugList;
+    }
+
+    private static Integer checkIfIVPredictionNeeded(BugLifecycle bugLifecycle) {
+        return bugLifecycle.isIVPredicionNeeded() ? 0 : 1;
     }
 
     private static void sortVersions(List<Version> convertedVersions) {

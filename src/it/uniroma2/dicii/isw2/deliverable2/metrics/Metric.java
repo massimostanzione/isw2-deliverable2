@@ -63,10 +63,10 @@ public abstract class Metric {
      * @param removedLOCs  LOCs removed in a commit
      * @param author       author of a single commit
      */
-    public void executeComputation(Measure measure, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+    public void executeComputation(Measure measure, MeasuredClass mc, Commit commit, ObjectLoader loader, DiffFormatter df,
                                    DiffEntry diff, Integer[] locs) {
         try {
-            this.setValue(this.compute(measure, mc, v, commit, loader, df, diff,locs));
+            this.setValue(this.compute(measure, mc,  commit, loader, df, diff,locs));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,6 +87,6 @@ public abstract class Metric {
      * @param author       author of a single commit
      * @throws IOException
      */
-    public abstract Float compute(Measure measure, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+    public abstract Float compute(Measure measure, MeasuredClass mc, Commit commit, ObjectLoader loader, DiffFormatter df,
                                   DiffEntry diff, Integer[] locs) throws IOException;
 }
