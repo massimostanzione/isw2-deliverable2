@@ -30,6 +30,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 /**
  * ML analysis control class.
@@ -118,8 +119,9 @@ public class MLAnalysis {
                             double trainPrc;
                             Path trainPath = Paths.get("./output/" + projName + "/dataset/training/TR" + (index) + ".csv");
                             Path datasetPath = Paths.get("./output/" + projName + "/dataset/dataset.csv");
-                            trainPrc = ((double) 100 * Files.lines(trainPath).count() - 1)
-                                    / (Files.readAllLines(datasetPath).size() - 1);
+                            Stream<String> str = Files.lines(trainPath);
+                            List<String> listDS = Files.readAllLines(datasetPath);
+                            trainPrc = ((double) 100 * str.count() - 1) / (listDS.size() - 1);
 
                             MLRecord ml = new MLRecord();
 
@@ -163,7 +165,7 @@ public class MLAnalysis {
      */
     private static Double determinePrc(String minClass, String total) {
         List<String> minClassLines = null;
-        List<String> totLines = null;
+        List<String> totLines = new ArrayList<>();
         try {
             minClassLines = Files.readAllLines(Paths.get(minClass));
             totLines = Files.readAllLines(Paths.get(total));
@@ -171,12 +173,7 @@ public class MLAnalysis {
             e.printStackTrace();
         }
         Integer trueCnt = 0;
-        Integer totLinesCnt = 0;
-        try {
-            totLinesCnt = totLines.size() - 1;
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
+        Integer totLinesCnt = totLines.size() - 1;
         for (var i = 0; i < minClassLines.size(); i++) {
             if (minClassLines.get(i).contains("true"))
                 trueCnt += 1;

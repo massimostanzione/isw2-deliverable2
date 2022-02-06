@@ -12,6 +12,7 @@ import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.diff.RawTextComparator;
 import org.eclipse.jgit.errors.RevisionSyntaxException;
+import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
@@ -159,13 +160,13 @@ public class GitHubMiddleware {
         List<Ref> versionTags = wc.getVersionTags();
         for (Ref tag : versionTags) {
             if (tag.toString().contains(name)) {
-                String tagStr = null;
+                ObjectId objId = null;
                 try {
-                    tagStr = tag.getObjectId().getName();
+                    objId = tag.getObjectId();
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
-                return tagStr;
+                return objId.getName();
             }
         }
         return null;
