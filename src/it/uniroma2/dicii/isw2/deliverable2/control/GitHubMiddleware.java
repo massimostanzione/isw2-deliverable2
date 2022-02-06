@@ -164,6 +164,7 @@ public class GitHubMiddleware {
                     ObjectId objId = new ObjectId(0, 0, 0, 0, 0);
                     try {
                         objId = tag.getObjectId();
+                        if (objId == null) return null;
                     } catch (NullPointerException e) {
                         e.printStackTrace();
                     }
