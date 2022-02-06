@@ -1,5 +1,6 @@
 package it.uniroma2.dicii.isw2.deliverable2.metrics;
 
+import it.uniroma2.dicii.isw2.deliverable2.entities.Commit;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Measure;
 import it.uniroma2.dicii.isw2.deliverable2.entities.MeasuredClass;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Version;
@@ -62,10 +63,10 @@ public abstract class Metric {
      * @param removedLOCs  LOCs removed in a commit
      * @param author       author of a single commit
      */
-    public void executeComputation(Measure measure, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df,
-                                   DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author) {
+    public void executeComputation(Measure measure, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+                                   DiffEntry diff, Integer[] locs) {
         try {
-            this.setValue(this.compute(measure, mc, v, touchedFiles, loader, df, diff, addedLOCs, removedLOCs, author));
+            this.setValue(this.compute(measure, mc, v, commit, loader, df, diff,locs));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -86,6 +87,6 @@ public abstract class Metric {
      * @param author       author of a single commit
      * @throws IOException
      */
-    public abstract Float compute(Measure measure, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df,
-                                  DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author) throws IOException;
+    public abstract Float compute(Measure measure, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+                                  DiffEntry diff, Integer[] locs) throws IOException;
 }

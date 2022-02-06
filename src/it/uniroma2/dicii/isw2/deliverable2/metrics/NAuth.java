@@ -1,5 +1,6 @@
 package it.uniroma2.dicii.isw2.deliverable2.metrics;
 
+import it.uniroma2.dicii.isw2.deliverable2.entities.Commit;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Measure;
 import it.uniroma2.dicii.isw2.deliverable2.entities.MeasuredClass;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Version;
@@ -28,9 +29,10 @@ public class NAuth extends Metric {
     }
 
     @Override
-    public Float compute(Measure measure, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df,
-                         DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author)
+    public Float compute(Measure m, MeasuredClass mc, Version v, Commit commit, ObjectLoader loader, DiffFormatter df,
+                         DiffEntry diff, Integer[] locs)
             throws IOException {
+        String author = commit.getReferredRawCommit().getAuthorIdent().getName();
         if (!this.authors.contains(author)) {
             this.authors.add(author);
         }

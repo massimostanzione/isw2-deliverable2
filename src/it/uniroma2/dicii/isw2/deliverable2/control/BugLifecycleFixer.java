@@ -146,7 +146,9 @@ public class BugLifecycleFixer {
             bl.setAVs(av);
             bl.setJIRACheck(BugLifecycleFixer.checkConsistency(bl));
             BugLifecycle correctedBl = correctJIRAErrors(bl, versionList);
-            bl = correctedBl;
+            bl.setAVs(correctedBl.getAVs());
+            bl.setIVPredictionNeeded(correctedBl.isIVPredicionNeeded());
+            bl.setProportionContribute(correctedBl.getProportionContribute());
             if (fv.getSortedID() > ov.getSortedID() && ov.getSortedID() > iv.getSortedID()) {
                 bl.setProportionContribute((float) (fv.getSortedID() - iv.getSortedID()) / (fv.getSortedID() - ov.getSortedID()));
                 return bl;

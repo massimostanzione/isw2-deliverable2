@@ -140,9 +140,8 @@ public class ProjectAnalyzer {
                     e.printStackTrace();
                 }
                 // Compute/update metrics
-                m.computeMetrics(mc, v, iteratedCommit.getTouchedFiles().size(),
-                        loader, df, diff, addedLOCs, removedLOCs,
-                        iteratedCommit.getReferredRawCommit().getAuthorIdent().getName());
+                Integer locs[]={addedLOCs, removedLOCs};
+                m.computeMetrics(mc, v, iteratedCommit, loader, df, diff, locs);
                 if (Boolean.FALSE.equals(m.isBuggy())) {
                     m.setBuggy(checkBugginess(mc, iteratedCommit));
                 }
