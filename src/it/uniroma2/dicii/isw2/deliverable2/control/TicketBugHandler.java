@@ -96,21 +96,15 @@ public class TicketBugHandler {
         Double finalMatchedTickets = matchedTickets;
         log.info(() -> "- Linkage probability = " + (finalMatchedTickets / tickets.size()));
 
-        // Sort tickets by their creation date
+        // Sort tickets and bugs by their creation date
         try {
             CollectionSorter.sort(tickets, Ticket.class.getDeclaredMethod("getCreationTimestamp"));
+            CollectionSorter.sort(bugList, Bug.class.getDeclaredMethod("getCreationTimestamp"));
         } catch (NoSuchMethodException | SecurityException e) {
             e.printStackTrace();
         }
         CSVExporterPrinter.getSingletonInstance().convertAndExport(tickets, "/output/" + projName + "/inspection/tickets.csv");
         log.info(() -> "- " + tickets.size() + " tickets found. ");
-
-        // Sort bugs by ticket creation date
-        try {
-            CollectionSorter.sort(bugList, Bug.class.getDeclaredMethod("getCreationTimestamp"));
-        } catch (NoSuchMethodException | SecurityException e) {
-            e.printStackTrace();
-        }
         CSVExporterPrinter.getSingletonInstance().convertAndExport(bugList, "/output/" + projName + "/inspection/bugs.csv");
         printToGraphicVisualizer(projName, bugList, versionList);
         return bugList;

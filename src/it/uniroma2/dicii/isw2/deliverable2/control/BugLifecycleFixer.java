@@ -112,9 +112,9 @@ public class BugLifecycleFixer {
     public static BugLifecycle computeBugLifecycle(Double proportionAvgNum, Integer n, List<Version> jiraVersions, Ticket iteratedTicket,
                                                    List<Version> versionList, LabelingMethod avPredMethod) throws VersionException {
         BugLifecycle bl = new BugLifecycle();
-        Version iv = null;
-        Version ov = null;
-        Version fv = null;
+        Version iv = new Version();
+        Version ov = new Version();
+        Version fv = new Version();
         List<Version> av = new ArrayList<>();
 
         // (1) Compute FV and OV
@@ -129,8 +129,8 @@ public class BugLifecycleFixer {
             // Ticket was created and solved in the same version.
             // It does not imply that IV does not exists, it can be previous indeed.
             // So, set it as the "current" version, in such a way that:
-            // (i)      it is FV-1;
-            // (ii)     it still is AV;
+            // (i)      it is FV-1
+            // (ii)     it still is AV
             // (iii)    it is the nearest to the ticket opening.
             ov = VersionHandler.getCurrentVersionByDate(iteratedTicket.getCreationTimestamp(), versionList);
         }
@@ -144,7 +144,8 @@ public class BugLifecycleFixer {
             av.addAll(jiraVersions);
             bl.setAVs(av);
             bl.setJIRACheck(BugLifecycleFixer.checkConsistency(bl));
-            bl = correctJIRAErrors(bl, versionList);
+            BugLifecycle correctedBl = correctJIRAErrors(bl, versionList);
+            bl=correctedBl;
             if (fv.getSortedID() > ov.getSortedID() && ov.getSortedID() > iv.getSortedID()) {
                 bl.setProportionContribute((float) (fv.getSortedID() - iv.getSortedID()) / (fv.getSortedID() - ov.getSortedID()));
                 return bl;
@@ -166,14 +167,15 @@ public class BugLifecycleFixer {
             ov = bl.getOV();
             av = bl.getAVs();
             fv = bl.getFV();
+
+            // (4) Final coherence check
+            if (fv.getSortedID() < iv.getSortedID() || ov.getSortedID() < iv.getSortedID()) {
+                //Discard bug: (b)
+                return null;
+            }
+            bl.setIV(iv);
+            bl.setAVs(av);
         }
-        // (4) Final coherence check
-        if (fv.getSortedID() < iv.getSortedID() || ov.getSortedID() < iv.getSortedID()) {
-            //Discard bug: (b)
-            return null;
-        }
-        bl.setIV(iv);
-        bl.setAVs(av);
         return bl;
     }
 
@@ -188,10 +190,10 @@ public class BugLifecycleFixer {
                     return bl;
                 case AVS_NOT_CONSISTENT:
                 case AV_AFTER_FV:
-                    bl = BugLifecycleFixer.fillSimpleLikeAVs(bl, versionList);
+                    bl = fillSimpleLikeAVs(bl, versionList);
                     break;
                 case FV_AS_AV:
-                    bl = BugLifecycleFixer.removeFVfromAVs(bl);
+                    bl = removeFVfromAVs(bl);
                     break;
                 case IV_AFTER_OV:
                     // Worst case: it is not possible, in any way, to obtain information from JIRA.
@@ -208,11 +210,10 @@ public class BugLifecycleFixer {
             if (Boolean.TRUE.equals(needsPrediction)) {
                 bl.setIVPredictionNeeded(true);
                 bl.setProportionContribute(0);
-                break;
             } else {
                 bl.setIVPredictionNeeded(false);
-                break;
             }
+            break;
         }
         return bl;
     }
