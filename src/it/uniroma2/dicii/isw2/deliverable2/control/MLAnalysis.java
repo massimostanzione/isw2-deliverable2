@@ -119,7 +119,12 @@ public class MLAnalysis {
                             double trainPrc;
                             Path trainPath = Paths.get("./output/" + projName + "/dataset/training/TR" + (index) + ".csv");
                             Path datasetPath = Paths.get("./output/" + projName + "/dataset/dataset.csv");
-                            Stream<String> str = Files.lines(trainPath);
+                            Stream<String> str = null;
+                            try {
+                                str = Files.lines(trainPath);
+                            } finally {
+                                str.close();
+                            }
                             List<String> listDS = Files.readAllLines(datasetPath);
                             trainPrc = ((double) 100 * str.count() - 1) / (listDS.size() - 1);
 
@@ -164,7 +169,7 @@ public class MLAnalysis {
      * @return % of minority class into the dataset
      */
     private static Double determinePrc(String minClass, String total) {
-        List<String> minClassLines = null;
+        List<String> minClassLines = new ArrayList<>();
         List<String> totLines = new ArrayList<>();
         try {
             minClassLines = Files.readAllLines(Paths.get(minClass));

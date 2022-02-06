@@ -160,7 +160,7 @@ public class GitHubMiddleware {
         List<Ref> versionTags = wc.getVersionTags();
         for (Ref tag : versionTags) {
             if (tag.toString().contains(name)) {
-                ObjectId objId = null;
+                ObjectId objId = new ObjectId(0,0,0,0,0);
                 try {
                     objId = tag.getObjectId();
                 } catch (NullPointerException e) {
