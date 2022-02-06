@@ -29,7 +29,7 @@ public class Churn extends Metric {
                          DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author)
             throws IOException {
         float initVal = this.getValue() == null ? 0 : this.getValue();
-        return initVal + (float) (addedLOCs - removedLOCs);
+        return initVal + (addedLOCs - removedLOCs);
 
     }
 

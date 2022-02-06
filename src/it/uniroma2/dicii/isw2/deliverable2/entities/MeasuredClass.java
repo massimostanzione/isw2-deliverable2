@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class MeasuredClass {
     private String name;
-    private List<Measure> measures = new ArrayList<Measure>();
+    private List<Measure> measures = new ArrayList<>();
 
     public MeasuredClass(String path) {
         this.name = path;

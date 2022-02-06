@@ -11,10 +11,14 @@ import weka.filters.supervised.instance.SMOTE;
 public class SMOTESampling implements Sampling {
 
     @Override
-    public Classifier getFilteredClassifier(Classifier cl, Instances insts) throws Exception {
+    public Classifier getFilteredClassifier(Classifier cl, Instances insts) {
         FilteredClassifier filteredCl = new FilteredClassifier();
         SMOTE smote = new SMOTE();
-        smote.setInputFormat(insts);
+        try {
+            smote.setInputFormat(insts);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         filteredCl.setClassifier(cl);
         filteredCl.setFilter(smote);
         return filteredCl;

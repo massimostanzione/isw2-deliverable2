@@ -9,52 +9,52 @@ import java.util.List;
  * Lifecycle of a bug.
  */
 public class BugLifecycle {
-    private Version IV;
-    private Version OV;
-    private Version FV;
-    private List<Version> AVs;
-    private List<JIRAAffectedVersionsCheck> JIRACheck = new ArrayList<>();
+    private Version iv;
+    private Version ov;
+    private Version fv;
+    private List<Version> avs;
+    private List<JIRAAffectedVersionsCheck> jiraCheck = new ArrayList<>();
     private float proportionContribute;
     private boolean wasIVPredictionNeeded;
 
     public Version getIV() {
-        return IV;
+        return iv;
     }
 
     public void setIV(Version iV) {
-        IV = iV;
+        iv = iV;
     }
 
     public Version getOV() {
-        return OV;
+        return ov;
     }
 
     public void setOV(Version oV) {
-        OV = oV;
+        ov = oV;
     }
 
     public Version getFV() {
-        return FV;
+        return fv;
     }
 
     public void setFV(Version fV) {
-        FV = fV;
+        fv = fV;
     }
 
     public void setAVs(List<Version> avs) {
-        this.AVs = avs;
+        this.avs = avs;
     }
 
     public List<Version> getAVs() {
-        return AVs;
+        return avs;
     }
 
     public List<JIRAAffectedVersionsCheck> getJIRACheck() {
-        return JIRACheck;
+        return jiraCheck;
     }
 
     public void setJIRACheck(List<JIRAAffectedVersionsCheck> jIRACheck) {
-        JIRACheck = jIRACheck;
+        jiraCheck = jIRACheck;
     }
 
     public void setProportionContribute(float prop) {
@@ -75,11 +75,11 @@ public class BugLifecycle {
 
     @Override
     public String toString() {
-        String ret = "";
-        for (Version v : this.AVs) {
-            ret += v.getSortedID() + " ";
+        StringBuilder sb = new StringBuilder();
+        for (Version v : this.avs) {
+            sb.append(v.getSortedID()).append(" ");
         }
-        ret += this.FV.getSortedID();
-        return ret;
+        sb.append(this.fv.getSortedID());
+        return sb.toString();
     }
 }

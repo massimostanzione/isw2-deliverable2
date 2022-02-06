@@ -19,13 +19,13 @@ public class MLRecord extends ExportableAsDatasetRecord {
     private String featureSelection;
     private String sensitivity;
     private double[][] confusionMatrix;
-    private double TP;
-    private double FP;
-    private double TN;
-    private double FN;
+    private double tp;
+    private double fp;
+    private double tn;
+    private double fn;
     private Double precision;
     private Double recall;
-    private Double AUC;
+    private Double auc;
     private Double kappa;
 
     public String getProjName() {
@@ -124,12 +124,12 @@ public class MLRecord extends ExportableAsDatasetRecord {
         this.recall = recall;
     }
 
-    public Double getAUC() {
-        return AUC;
+    public Double getAuc() {
+        return auc;
     }
 
-    public void setAUC(Double aUC) {
-        AUC = aUC;
+    public void setAuc(Double aUC) {
+        auc = aUC;
     }
 
     public Double getKappa() {
@@ -140,36 +140,36 @@ public class MLRecord extends ExportableAsDatasetRecord {
         this.kappa = kappa;
     }
 
-    public double getTP() {
-        return TP;
+    public double getTp() {
+        return tp;
     }
 
-    public void setTP(double TP) {
-        this.TP = TP;
+    public void setTp(double tp) {
+        this.tp = tp;
     }
 
-    public double getFP() {
-        return FP;
+    public double getFp() {
+        return fp;
     }
 
-    public void setFP(double FP) {
-        this.FP = FP;
+    public void setFp(double fp) {
+        this.fp = fp;
     }
 
-    public double getTN() {
-        return TN;
+    public double getTn() {
+        return tn;
     }
 
-    public void setTN(double TN) {
-        this.TN = TN;
+    public void setTn(double tn) {
+        this.tn = tn;
     }
 
-    public double getFN() {
-        return FN;
+    public double getFn() {
+        return fn;
     }
 
-    public void setFN(double FN) {
-        this.FN = FN;
+    public void setFn(double fn) {
+        this.fn = fn;
     }
 
     @Override
@@ -184,7 +184,7 @@ public class MLRecord extends ExportableAsDatasetRecord {
     public List<List<String>> getDatasetRecord() {
         this.setDatasetRecord(this.projName, this.trainNo, this.trainPerc, this.trainDefect,
                 this.testDefect, this.classifier.getClass().getSimpleName(), this.featureSelection, this.balancing, this.sensitivity,
-                this.TP, this.FP, this.TN, this.FN, this.precision, this.recall, this.AUC,
+                this.tp, this.fp, this.tn, this.fn, this.precision, this.recall, this.auc,
                 this.kappa);
         return this.datasetRecord;
     }

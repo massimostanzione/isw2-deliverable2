@@ -16,7 +16,7 @@ public abstract class Metric {
     protected String datasetName;
     protected Float value = Float.valueOf(0);
 
-    public Metric() {
+    protected Metric() {
         this.datasetName = this.initDatasetName();
     }
 

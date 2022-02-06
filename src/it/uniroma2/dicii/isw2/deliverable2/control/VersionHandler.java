@@ -25,10 +25,13 @@ import java.util.logging.Logger;
  */
 public class VersionHandler {
 
-    private static ArrayList<Version> versionList = new ArrayList<Version>();
+    private static List<Version> versionList = new ArrayList<>();
     private static Logger log = LoggerInst.getSingletonInstance();
 
-    public static ArrayList<Version> getVersionList() {
+    private VersionHandler() {
+    }
+
+    public static List<Version> getVersionList() {
         return versionList;
     }
 
@@ -46,7 +49,6 @@ public class VersionHandler {
      */
     public static List<Version> fetchProjectVersions(String projName, GitWorkingCopy wc) {
         log.info(() -> "Initializing version list...");
-        Integer i;
         // Build JIRA Query to find all the versions of the project
         JIRAQuery query = new JIRAQuery(JIRAQueryType.JIRA_QUERY_TYPE_PROJECT);
         query.setProject(projName);
@@ -55,36 +57,7 @@ public class VersionHandler {
         try {
             json = JSONHandler.readJsonFromUrl(url);
             JSONArray versions = json.getJSONArray("versions");
-            for (i = 0; i < versions.length(); i++) {
-                String name = "";
-                String id = "";
-                // Discard versions: (a)
-                if (versions.getJSONObject(i).has("releaseDate")) {
-                    if (versions.getJSONObject(i).has("name"))
-                        name = versions.getJSONObject(i).get("name").toString();
-                    String finalName = name;
-                    // Discard versions: (b)
-                    if (!name.contains("beta")) {
-                        if (versions.getJSONObject(i).has("id"))
-                            id = versions.getJSONObject(i).get("id").toString();
-                        String date = versions.getJSONObject(i).get("releaseDate").toString();
-                        Version v = new Version();
-                        v.setName(name);
-                        v.setVersionDate(new SimpleDateFormat("yyyy-MM-dd").parse(date));
-                        // Discard versions: (c)
-                        if (GitHubMiddleware.findGitHubHashID(name, wc) != null) {
-                            v.setHashID(GitHubMiddleware.findGitHubHashID(name, wc));
-                            versionList.add(v);
-                        } else {
-                            log.fine(() -> "- Skipped version " + finalName + ", not matched in GitHub working copy.");
-                        }
-                    } else
-                        log.fine(() -> "- Skipped version " + finalName + ", because of its \"not final\" status.");
-                } else {
-                    String finalName = name;
-                    log.fine(() -> "- Skipped version " + finalName + ", because no release date associated.");
-                }
-            }
+            versionList = filterVersions(versions, wc);
         } catch (IOException | JSONException | ParseException e) {
             e.printStackTrace();
         }
@@ -100,6 +73,38 @@ public class VersionHandler {
         CSVExporterPrinter.getSingletonInstance().convertAndExport(versionList, "/output/" + projName + "/inspection/versions.csv");
         log.info(() -> "- " + versionList.size() + " versions found.");
         return versionList;
+    }
+
+    private static List<Version> filterVersions(JSONArray versions, GitWorkingCopy wc) throws JSONException, ParseException {
+        List<Version> filteredVersionList = new ArrayList<>();
+        for (int i = 0; i < versions.length(); i++) {
+            String name = "";
+            // Discard versions: (a)
+            if (versions.getJSONObject(i).has("releaseDate")) {
+                if (versions.getJSONObject(i).has("name"))
+                    name = versions.getJSONObject(i).get("name").toString();
+                String finalName = name;
+                // Discard versions: (b)
+                if (!name.contains("beta")) {
+                    String date = versions.getJSONObject(i).get("releaseDate").toString();
+                    Version v = new Version();
+                    v.setName(name);
+                    v.setVersionDate(new SimpleDateFormat("yyyy-MM-dd").parse(date));
+                    // Discard versions: (c)
+                    if (GitHubMiddleware.findGitHubHashID(name, wc) != null) {
+                        v.setHashID(GitHubMiddleware.findGitHubHashID(name, wc));
+                        filteredVersionList.add(v);
+                    } else {
+                        log.fine(() -> "- Skipping version " + finalName + ", not matched in GitHub working copy.");
+                    }
+                } else
+                    log.fine(() -> "- Skipping version " + finalName + ", because of its \"not final\" status.");
+            } else {
+                String finalName = name;
+                log.fine(() -> "- Skipping version " + finalName + ", because no release date associated.");
+            }
+        }
+        return filteredVersionList;
     }
 
     /**
@@ -138,7 +143,7 @@ public class VersionHandler {
      * @return the subsequent version, or <code>null</code> if not found
      * @throws VersionException
      */
-    public static Version getNextVersionByDate(Date date, List<Version> versionList) throws VersionException {
+    public static Version getNextVersionByDate(Date date, List<Version> versionList) {
         return getVersionByDateExecutive(date, versionList, 1);
     }
 

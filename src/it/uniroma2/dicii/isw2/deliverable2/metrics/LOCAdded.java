@@ -10,13 +10,13 @@ import org.eclipse.jgit.lib.ObjectLoader;
 import java.io.IOException;
 
 /**
- * Sum of added and removed lines of code.
+ * Added lines of code.
  */
-public class LOC_Touched extends Metric {
+public class LOCAdded extends Metric {
 
     @Override
     protected String initDatasetName() {
-        return "LOC_Touched";
+        return "LOC_Added";
     }
 
     @Override
@@ -28,6 +28,6 @@ public class LOC_Touched extends Metric {
     public Float compute(Measure m, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df, DiffEntry diff,
                          Integer addedLOCs, Integer removedLOCs, String author)
             throws IOException {
-        return (float) (addedLOCs + removedLOCs);
+        return this.value + (float) (addedLOCs);
     }
 }

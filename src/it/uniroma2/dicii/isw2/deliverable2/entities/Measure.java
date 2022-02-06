@@ -16,12 +16,12 @@ public class Measure extends ExportableAsDatasetRecord {
     private Version version;
     private String name;
     private final Metric size = new Size();
-    private final Metric LOC_touched = new LOC_Touched();
+    private final Metric loc_touched = new LOCTouched();
     private final Metric nr = new NR();
     private final Metric nAuth = new NAuth();
-    private final Metric LOC_added = new LOC_Added();
-    private final Metric max_LOC_added = new Max_LOC_Added();
-    private final Metric avg_LOC_added = new Avg_LOC_Added();
+    private final Metric loc_added = new LOCAdded();
+    private final Metric max_loc_added = new MaxLOCAdded();
+    private final Metric avg_loc_added = new AvgLocAdded();
     private Metric churn = new Churn();
     private final Metric chgSetSize = new ChangesetSize();
     private Boolean buggy = false;
@@ -35,8 +35,8 @@ public class Measure extends ExportableAsDatasetRecord {
         return nr;
     }
 
-    public Metric getLOC_added() {
-        return LOC_added;
+    public Metric getLoc_added() {
+        return loc_added;
     }
 
     public Version getVersion() {
@@ -73,11 +73,11 @@ public class Measure extends ExportableAsDatasetRecord {
         ret.add(this.size);
         ret.add(this.nr);
         ret.add(this.nAuth);
-        ret.add(this.LOC_touched);
-        ret.add(this.LOC_added);
+        ret.add(this.loc_touched);
+        ret.add(this.loc_added);
         // Following parameters are dependant on the previous ones.
-        ret.add(this.max_LOC_added);
-        ret.add(this.avg_LOC_added);
+        ret.add(this.max_loc_added);
+        ret.add(this.avg_loc_added);
         ret.add(this.churn);
         ret.add(this.chgSetSize);
         return ret;

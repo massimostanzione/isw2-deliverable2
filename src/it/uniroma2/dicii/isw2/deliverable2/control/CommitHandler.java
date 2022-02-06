@@ -18,6 +18,9 @@ import java.util.logging.Logger;
 public class CommitHandler {
     private static Logger log = LoggerInst.getSingletonInstance();
 
+    private CommitHandler() {
+    }
+
     /**
      * Given a version, retrieve all the commits related to it.
      *
@@ -42,12 +45,11 @@ public class CommitHandler {
     /**
      * Fetch all the unique classes touched by all the project commits
      *
-     * @param projName   project name
      * @param commitList list of the project commits
      * @return list of all the classes touched in the project
      */
-    public static List<MeasuredClass> getAllClasses(String projName, List<Commit> commitList) {
-        log.info(() -> "- Fetching all the classes...");
+    public static List<MeasuredClass> getAllClasses(List<Commit> commitList) {
+        log.info(() -> "Fetching all the classes...");
         List<MeasuredClass> allClasses = new ArrayList<>();
         for (Commit c : commitList) {
             for (MeasuredClass mc : c.getTouchedFiles()) {
@@ -74,9 +76,9 @@ public class CommitHandler {
     public static List<Commit> fetchCommitsRelatedToTicket(Ticket ticket, List<Commit> commitList) {
         List<Commit> ret = new ArrayList<>();
         for (Commit iteratedCommit : commitList) {
-            if (iteratedCommit.getCommitMsg().contains(ticket.getID() + (":"))
-                    || iteratedCommit.getCommitMsg().contains(ticket.getID() + " ")
-                    || iteratedCommit.getCommitMsg().contains(ticket.getID() + "]")) {
+            if (iteratedCommit.getCommitMsg().contains(ticket.getId() + (":"))
+                    || iteratedCommit.getCommitMsg().contains(ticket.getId() + " ")
+                    || iteratedCommit.getCommitMsg().contains(ticket.getId() + "]")) {
                 ret.add(iteratedCommit);
             }
         }

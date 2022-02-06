@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Average Lines of code added.
  */
-public class Avg_LOC_Added extends Metric {
+public class AvgLocAdded extends Metric {
 
     @Override
     protected String initDatasetName() {
@@ -28,6 +28,6 @@ public class Avg_LOC_Added extends Metric {
     public Float compute(Measure m, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df,
                          DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author)
             throws IOException {
-        return m.getLOC_added().getValue() / m.getNr().getValue();
+        return m.getLoc_added().getValue() / m.getNr().getValue();
     }
 }

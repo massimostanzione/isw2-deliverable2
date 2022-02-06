@@ -9,13 +9,13 @@ import java.util.List;
  * A single ticket.
  */
 public class Ticket extends ExportableAsDatasetRecord {
-    private String ID;
+    private String id;
     private Date creationTimestamp;
     private Date fixTimestamp;
     private List<Commit> commitList;
 
     public Ticket(String key, String creat, String res) {
-        this.ID = key;
+        this.id = key;
         try {
             this.creationTimestamp = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(creat);
             this.fixTimestamp = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX").parse(res);
@@ -24,12 +24,12 @@ public class Ticket extends ExportableAsDatasetRecord {
         }
     }
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    public void setID(String iD) {
-        ID = iD;
+    public void setId(String iD) {
+        id = iD;
     }
 
     public Date getCreationTimestamp() {
@@ -62,13 +62,13 @@ public class Ticket extends ExportableAsDatasetRecord {
      * @return the last commit date, or null if not any
      */
     public Date getLastCommitDate() {
-        List<Commit> commitList = this.commitList;
-        if (commitList != null) {
-            Commit first = commitList.get(0);
+        List<Commit> checkingCommitList = this.commitList;
+        if (checkingCommitList != null) {
+            Commit first = checkingCommitList.get(0);
             Date last = first.getDate();
-            for (Integer j = 0; j < commitList.size(); j++) {
-                if (commitList.get(j).getDate() != null && commitList.get(j).getDate().after(last)) {
-                    last = commitList.get(j).getDate();
+            for (Integer j = 0; j < checkingCommitList.size(); j++) {
+                if (checkingCommitList.get(j).getDate() != null && checkingCommitList.get(j).getDate().after(last)) {
+                    last = checkingCommitList.get(j).getDate();
                 }
             }
             return last;
@@ -85,7 +85,7 @@ public class Ticket extends ExportableAsDatasetRecord {
 
     @Override
     public List<List<String>> getDatasetRecord() {
-        this.setDatasetRecord(this.ID, this.creationTimestamp, this.fixTimestamp);
+        this.setDatasetRecord(this.id, this.creationTimestamp, this.fixTimestamp);
         return this.datasetRecord;
     }
 }

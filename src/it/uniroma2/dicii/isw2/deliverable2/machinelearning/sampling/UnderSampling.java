@@ -11,12 +11,16 @@ import weka.filters.supervised.instance.SpreadSubsample;
 public class UnderSampling implements Sampling {
 
     @Override
-    public Classifier getFilteredClassifier(Classifier cl, Instances insts) throws Exception {
+    public Classifier getFilteredClassifier(Classifier cl, Instances insts) {
         FilteredClassifier filteredCl = new FilteredClassifier();
         SpreadSubsample spreadSubsample = new SpreadSubsample();
         // Equivalent to "-M" option
         spreadSubsample.setDistributionSpread(1.0);
-        spreadSubsample.setInputFormat(insts);
+        try {
+            spreadSubsample.setInputFormat(insts);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         filteredCl.setClassifier(cl);
         filteredCl.setFilter(spreadSubsample);
         return filteredCl;

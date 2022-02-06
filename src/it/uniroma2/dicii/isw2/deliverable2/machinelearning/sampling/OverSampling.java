@@ -24,10 +24,14 @@ public class OverSampling implements Sampling {
     }
 
     @Override
-    public Classifier getFilteredClassifier(Classifier cl, Instances insts) throws Exception {
+    public Classifier getFilteredClassifier(Classifier cl, Instances insts) {
         FilteredClassifier filteredCl = new FilteredClassifier();
         Resample resample = new Resample();
-        resample.setInputFormat(insts);
+        try {
+            resample.setInputFormat(insts);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         // Equivalent to "-B" option
         resample.setBiasToUniformClass(1.0);
         // Equivalent to "-Z" option

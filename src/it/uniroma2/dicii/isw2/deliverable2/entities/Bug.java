@@ -32,7 +32,7 @@ public class Bug extends ExportableAsDatasetRecord {
      * @return
      */
     public String getID() {
-        return ticket.getID();
+        return ticket.getId();
     }
 
     public Date getCreationTimestamp() {
@@ -47,7 +47,7 @@ public class Bug extends ExportableAsDatasetRecord {
 
     @Override
     public List<List<String>> getDatasetRecord() {
-        this.setDatasetRecord(this.ticket != null ? this.ticket.getID() : "N.A.",
+        this.setDatasetRecord(this.ticket != null ? this.ticket.getId() : "N.A.",
                 this.bugLifecycle.getIV() != null ? this.bugLifecycle.getIV().getSortedID() : "N.A.",
                 this.bugLifecycle.getOV() != null ? this.bugLifecycle.getOV().getSortedID() : "N.A.",
                 this.bugLifecycle.getFV() != null ? this.bugLifecycle.getFV().getSortedID() : "N.A.");

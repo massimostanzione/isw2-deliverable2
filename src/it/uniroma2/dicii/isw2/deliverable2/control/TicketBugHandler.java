@@ -24,6 +24,9 @@ import java.util.logging.Logger;
 public class TicketBugHandler {
     private static final Logger log = LoggerInst.getSingletonInstance();
 
+    private TicketBugHandler() {
+    }
+
     public static List<Bug> fetchProjectBugs(String projName, List<Commit> commitList, List<Version> versionList,
                                              LabelingMethod avPredMethod) {
         log.info(() -> "Initializing ticket (and related commits) list...");
@@ -59,18 +62,7 @@ public class TicketBugHandler {
                     JSONArray versions = issues.getJSONObject(i % 1000).getJSONObject(JQLQuery.JQL_FIELDS).getJSONArray(JQLQuery.JQL_FIELD_VERSIONS);
 
                     Ticket iteratedTicket = new Ticket(key, creat, res);
-                    List<Version> convertedVersions = new ArrayList<>();
-                    // Convert versions
-                    for (Integer l = 0; l < versions.length(); l++) {
-                        String versionName = versions.getJSONObject(l).getString(JQLQuery.JQL_FIELD_NAME);
-                        Version v = null;
-                        try {
-                            v = VersionHandler.getVersionByName(versionName, versionList);
-                        } catch (VersionException e) {
-                            e.printStackTrace();
-                        }
-                        convertedVersions.add(v);
-                    }
+                    List<Version> convertedVersions = convertVersions(versions, versionList);
                     // Sort tversions based on ID
                     try {
                         CollectionSorter.sort(convertedVersions, Version.class.getDeclaredMethod("getSortedID"));
@@ -80,10 +72,10 @@ public class TicketBugHandler {
 
                     // Search for commits related to ticket
                     List<Commit> iteratedCommitList = CommitHandler.fetchCommitsRelatedToTicket(iteratedTicket, commitList);
-                    log.finest("Ticket " + iteratedTicket.getID() + ": " + iteratedCommitList.size() + " commit(s) found.");
+                    log.finest(() -> "Ticket " + iteratedTicket.getId() + ": " + iteratedCommitList.size() + " commit(s) found.");
 
                     // Fully instance a bug object related to the ticket
-                    if (iteratedCommitList.size() > 0) {
+                    if (!iteratedCommitList.isEmpty()) {
                         matchedTickets++;
                         iteratedTicket.setCommitList(iteratedCommitList);
                         Bug b = instanceBug(iteratedTicket, proportionAvgNum, n, convertedVersions, versionList, avPredMethod);
@@ -124,6 +116,22 @@ public class TicketBugHandler {
         return bugList;
     }
 
+    private static List<Version> convertVersions(JSONArray versions, List<Version> versionList) throws JSONException {
+        // Convert versions
+        List<Version> convertedVersions = new ArrayList<>();
+        for (Integer l = 0; l < versions.length(); l++) {
+            String versionName = versions.getJSONObject(l).getString(JQLQuery.JQL_FIELD_NAME);
+            Version v = null;
+            try {
+                v = VersionHandler.getVersionByName(versionName, versionList);
+            } catch (VersionException e) {
+                e.printStackTrace();
+            }
+            convertedVersions.add(v);
+        }
+        return convertedVersions;
+    }
+
     /**
      * Print to the Graphic Bug Visualizer
      *
@@ -134,30 +142,35 @@ public class TicketBugHandler {
     private static void printToGraphicVisualizer(String projName, List<Bug> bugList, List<Version> versionList) {
         List<GraphicBugLifecycleVisualizerRecord> ret = new ArrayList<>();
         for (Bug b : bugList) {
-            GraphicBugLifecycleVisualizerRecord record = new GraphicBugLifecycleVisualizerRecord(versionList, bugList);
-            record.setID(b.getTicket().getID());
+            GraphicBugLifecycleVisualizerRecord gvRecord = new GraphicBugLifecycleVisualizerRecord(versionList);
+            gvRecord.setID(b.getTicket().getId());
             for (Version v : versionList) {
-                String val = "";
-                if (b.getBugLifecycle().getIV().equals(v)) {
-                    val += "I";
-                }
-                if (b.getBugLifecycle().getOV().equals(v)) {
-                    val += "O";
-                }
-                if ((b.getBugLifecycle().getAVs().contains(v))) {
-                    val += "A";
-                }
-                if (b.getBugLifecycle().getFV().equals(v)) {
-                    val += "F";
-                }
-                record.appendLabel(!val.equals("") ? val : "-");
+                String val = buildGVString(b.getBugLifecycle(), v);
+                gvRecord.appendLabel(!val.equals("") ? val : "-");
             }
             List<JIRAAffectedVersionsCheck> errors = new ArrayList<>();
             errors.addAll(b.getBugLifecycle().getJIRACheck());
-            record.setJIRACheck(errors);
-            ret.add(record);
+            gvRecord.setJIRACheck(errors);
+            ret.add(gvRecord);
         }
         CSVExporterPrinter.getSingletonInstance().convertAndExport(ret, "/output/" + projName + "/inspection/graphicBugLifecycleVisualizer.csv");
+    }
+
+    private static String buildGVString(BugLifecycle bugLifecycle, Version v) {
+        String val = "";
+        if (bugLifecycle.getIV().equals(v)) {
+            val += "I";
+        }
+        if (bugLifecycle.getOV().equals(v)) {
+            val += "O";
+        }
+        if ((bugLifecycle.getAVs().contains(v))) {
+            val += "A";
+        }
+        if (bugLifecycle.getFV().equals(v)) {
+            val += "F";
+        }
+        return val;
     }
 
     /**
@@ -166,16 +179,16 @@ public class TicketBugHandler {
      * @param iteratedTicket   ticket related to the bug
      * @param proportionAvgNum for the computing of proportion
      * @param n                for the computing of proportion
-     * @param JIRAVersions     list of versions to be searched in
+     * @param jiraVersions     list of versions to be searched in
      * @param versionList      all the project's versions
      * @param avPredMethod     labeling method
      * @return the <code>Bug</code> object related to the <code>iteratedTicket</code> ticket.
      */
-    private static Bug instanceBug(Ticket iteratedTicket, Double proportionAvgNum, Integer n, List<Version> JIRAVersions, List<Version> versionList, LabelingMethod avPredMethod) {
+    private static Bug instanceBug(Ticket iteratedTicket, Double proportionAvgNum, Integer n, List<Version> jiraVersions, List<Version> versionList, LabelingMethod avPredMethod) {
         Bug b = new Bug();
         b.setTicket(iteratedTicket);
         try {
-            b.setBugLifecycle(BugLifecycleFixer.computeBugLifecycle(proportionAvgNum, n, JIRAVersions,
+            b.setBugLifecycle(BugLifecycleFixer.computeBugLifecycle(proportionAvgNum, n, jiraVersions,
                     iteratedTicket,
                     versionList, avPredMethod));
         } catch (VersionException e) {

@@ -26,7 +26,6 @@ import org.eclipse.jgit.util.io.DisabledOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -39,6 +38,8 @@ public class ProjectAnalyzer {
     private final LabelingMethod avPredMethod;
     private final List<TouchedClassesInspection> inspList = new ArrayList<>();
     List<MeasuredClass> allClasses;
+    private
+    String root = "/output/";
 
     public ProjectAnalyzer(Project p, LabelingMethod avPredMethod) {
         this.p = p;
@@ -77,7 +78,7 @@ public class ProjectAnalyzer {
         GitWorkingCopy workingCopy = p.getWorkingCopy();
         List<Version> versionList = p.getVersionList();
         List<Commit> commitList = p.getCommitList();
-        this.allClasses = CommitHandler.getAllClasses(p.getName(), p.getCommitList());
+        this.allClasses = CommitHandler.getAllClasses(p.getCommitList());
 
         RevWalk revWalk = new RevWalk(workingCopy.getGit().getRepository());
         revWalk.sort(RevSort.TOPO);
@@ -101,61 +102,67 @@ public class ProjectAnalyzer {
                 }
                 for (DiffEntry diff : diffEntries) {
                     if (diff.getNewPath().contains(".java")) {
-                        for (MeasuredClass mc : allClasses) {
-                            // SE IL FILE E' TOUCHED DAL COMMIT
-                            if (mc.getName().equals(diff.getNewPath())) {
-                                Measure m = mc.atVersion(v) == null ? new Measure(mc.getName(), v) : mc.atVersion(v);
-                                Repository repository = workingCopy.getGit().getRepository();
-                                TreeWalk treeWalk = new TreeWalk(repository);
-                                try {
-                                    treeWalk.addTree(currTree);
-                                    treeWalk.setRecursive(true);
-                                    treeWalk.setFilter(PathFilter.create(diff.getNewPath()));
-                                    if (!treeWalk.next()) {
-                                        treeWalk.close();
-                                        return;
-                                    }
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                ObjectId objectId = treeWalk.getObjectId(0);
-                                ObjectLoader loader = null;
-                                try {
-                                    loader = repository.open(objectId);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-                                Integer addedLOCs = 0, removedLOCs = 0;
-                                try {
-                                    for (Edit edit : df.toFileHeader(diff).toEditList()) {
-                                        addedLOCs += edit.getEndB() - edit.getBeginB();
-                                        removedLOCs += edit.getEndA() - edit.getBeginA();
-                                    }
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                // Compute/update metrics
-                                m.computeMetrics(mc, v, iteratedCommit.getTouchedFiles().size(),
-                                        loader, df, diff, addedLOCs, removedLOCs,
-                                        iteratedCommit.getReferredRawCommit().getAuthorIdent().getName());
-                                if (!m.isBuggy()) {
-                                    m.setBuggy(checkBugginess(mc, iteratedCommit));
-                                }
-                                if (mc.atVersion(v) == null) {
-                                    mc.getMeasures().add(m);
-                                }
-                                treeWalk.close();
-                                break;
-                            }
-                        }
+                        examineClass(diff, v, currTree, workingCopy, df, iteratedCommit);
                     }
                 }
             }
         }
-        CSVExporterPrinter.export(prepareDataset(allClasses), "/output/" + projName + "/dataset/dataset.csv");
-        CSVExporterPrinter.getSingletonInstance().convertAndExport(inspList, "/output/" + projName + "/inspection/touchedClassesInsp.csv");
+        CSVExporterPrinter.export(prepareDataset(allClasses), root + projName + "/dataset/dataset.csv");
+        CSVExporterPrinter.getSingletonInstance().convertAndExport(inspList, root + projName + "/inspection/touchedClassesInsp.csv");
+    }
+
+    private void examineClass(DiffEntry diff, Version v, RevTree currTree, GitWorkingCopy workingCopy,
+                              DiffFormatter df, Commit iteratedCommit) {
+        for (MeasuredClass mc : allClasses) {
+            // if class is touched by commit
+            if (mc.getName().equals(diff.getNewPath())) {
+                Measure m = mc.atVersion(v) == null ? new Measure(mc.getName(), v) : mc.atVersion(v);
+                Repository repository = workingCopy.getGit().getRepository();
+                TreeWalk treeWalk = new TreeWalk(repository);
+                try {
+                    treeWalk.addTree(currTree);
+                    treeWalk.setRecursive(true);
+                    treeWalk.setFilter(PathFilter.create(diff.getNewPath()));
+                    if (!treeWalk.next()) {
+                        treeWalk.close();
+                        return;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                ObjectId objectId = treeWalk.getObjectId(0);
+                ObjectLoader loader = null;
+                try {
+                    loader = repository.open(objectId);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                Integer addedLOCs = 0;
+                Integer removedLOCs = 0;
+                try {
+                    for (Edit edit : df.toFileHeader(diff).toEditList()) {
+                        addedLOCs += edit.getEndB() - edit.getBeginB();
+                        removedLOCs += edit.getEndA() - edit.getBeginA();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                // Compute/update metrics
+                m.computeMetrics(mc, v, iteratedCommit.getTouchedFiles().size(),
+                        loader, df, diff, addedLOCs, removedLOCs,
+                        iteratedCommit.getReferredRawCommit().getAuthorIdent().getName());
+                if (Boolean.FALSE.equals(m.isBuggy())) {
+                    m.setBuggy(checkBugginess(mc, iteratedCommit));
+                }
+                if (mc.atVersion(v) == null) {
+                    mc.getMeasures().add(m);
+                }
+                treeWalk.close();
+                break;
+            }
+        }
     }
 
     /**
@@ -174,9 +181,9 @@ public class ProjectAnalyzer {
                 }
             }
             CSVExporterPrinter.getSingletonInstance().convertAndExport(testing,
-                    "/output/" + projName + "/dataset/testing/TE" + versionList.get(i).getSortedID() + ".csv");
+                    root + projName + "/dataset/testing/TE" + versionList.get(i).getSortedID() + ".csv");
             ARFFExporterPrinter.getSingletonInstance().convertAndExport(projName, testing,
-                    "/output/" + projName + "/dataset/testing/TE" + versionList.get(i).getSortedID() + ".arff");
+                    root + projName + "/dataset/testing/TE" + versionList.get(i).getSortedID() + ".arff");
             for (Integer j = 0; j <= i; j++) {
                 for (MeasuredClass mc : allClasses) {
                     if (mc.atVersion(versionList.get(j)) != null) {
@@ -185,9 +192,9 @@ public class ProjectAnalyzer {
                 }
             }
             CSVExporterPrinter.getSingletonInstance().convertAndExport(training,
-                    "/output/" + projName + "/dataset/training/TR" + versionList.get(i).getSortedID() + ".csv");
+                    root + projName + "/dataset/training/TR" + versionList.get(i).getSortedID() + ".csv");
             ARFFExporterPrinter.getSingletonInstance().convertAndExport(projName, training,
-                    "/output/" + projName + "/dataset/training/TR" + versionList.get(i).getSortedID() + ".arff");
+                    root + projName + "/dataset/training/TR" + versionList.get(i).getSortedID() + ".arff");
             training.clear();
             testing.clear();
         }
@@ -212,26 +219,30 @@ public class ProjectAnalyzer {
                     if (check.getCommitID().equals(c.getCommitID())) {
                         // Here we already know that the class is buggy
                         // (this specific commit is involved in a bug).
-                        // Next iterations are for inspection purposes only.
-                        for (Version ve : versionList) {
-                            for (Version bugAV : b.getBugLifecycle().getAVs()) {
-                                if (ve.getSortedID().equals(bugAV.getSortedID())) {
-                                    TouchedClassesInspection insp = new TouchedClassesInspection();
-                                    insp.setB(b);
-                                    insp.setBl(b.getBugLifecycle());
-                                    insp.setC(check);
-                                    insp.setMc(mc);
-                                    insp.setV(ve);
-                                    inspList.add(insp);
-                                }
-                            }
-                        }
+                        // Next method is for inspection purposes only.
+                        compileBugInspection(b, check, mc, versionList);
                         return true;
                     }
                 }
             }
         }
         return false;
+    }
+
+    private void compileBugInspection(Bug b, Commit check, MeasuredClass mc, List<Version> versionList) {
+        for (Version ve : versionList) {
+            for (Version bugAV : b.getBugLifecycle().getAVs()) {
+                if (ve.getSortedID().equals(bugAV.getSortedID())) {
+                    TouchedClassesInspection insp = new TouchedClassesInspection();
+                    insp.setB(b);
+                    insp.setBl(b.getBugLifecycle());
+                    insp.setC(check);
+                    insp.setMc(mc);
+                    insp.setV(ve);
+                    inspList.add(insp);
+                }
+            }
+        }
     }
 
     /**
@@ -248,14 +259,12 @@ public class ProjectAnalyzer {
             }
         }
         List<List<String>> ret = CSVExporterPrinter.getSingletonInstance().convertToCSVExportable(ret1);
-        Collections.sort(ret, new Comparator<List<String>>() {
-            public int compare(List<String> o1, List<String> o2) {
-                try {
-                    return Integer.valueOf(o1.get(0)).compareTo(Integer.valueOf(o2.get(0)));
-                } catch (NumberFormatException e) {
-                    // When title is parsed
-                    return 0;
-                }
+        Collections.sort(ret, (o1, o2) -> {
+            try {
+                return Integer.valueOf(o1.get(0)).compareTo(Integer.valueOf(o2.get(0)));
+            } catch (NumberFormatException e) {
+                // When title is parsed
+                return 0;
             }
         });
         return ret;

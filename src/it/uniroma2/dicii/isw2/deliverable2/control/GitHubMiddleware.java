@@ -33,7 +33,7 @@ import java.util.logging.Logger;
  * manage working copies of the analyzed projects.
  */
 public class GitHubMiddleware {
-    public static final String DEFAULT_GIT_WORKINGCOPY_PATH = "/tmp/isw2-deliverable2";
+    public static final String DEFAULT_GIT_WORKINGCOPY_PATH = System.getProperty("java.io.tmpdir") + "/isw2-deliverable2";
     private static GitWorkingCopy ret;
 
     private static Logger log = LoggerInst.getSingletonInstance();
@@ -159,17 +159,15 @@ public class GitHubMiddleware {
     public static String findGitHubHashID(String name, GitWorkingCopy wc) {
         List<Ref> versionTags = wc.getVersionTags();
         for (Ref tag : versionTags) {
-            if (tag != null) {
-                if (tag.toString().contains(name)) {
-                    ObjectId objId = new ObjectId(0, 0, 0, 0, 0);
-                    try {
-                        objId = tag.getObjectId();
-                        if (objId == null) return null;
-                    } catch (NullPointerException e) {
-                        e.printStackTrace();
-                    }
-                    return objId.getName();
+            if (tag != null && tag.toString().contains(name)) {
+                ObjectId objId = new ObjectId(0, 0, 0, 0, 0);
+                try {
+                    objId = tag.getObjectId();
+                    if (objId == null) return null;
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
                 }
+                return objId.getName();
             }
         }
         return null;

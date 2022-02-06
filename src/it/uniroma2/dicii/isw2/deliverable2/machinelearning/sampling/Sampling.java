@@ -15,5 +15,5 @@ public interface Sampling {
      * @return the classifier, adequately adapted (filtered) to the specified technique
      * @throws Exception
      */
-    Classifier getFilteredClassifier(Classifier cl, Instances insts) throws Exception;
+    Classifier getFilteredClassifier(Classifier cl, Instances insts) ;
 }

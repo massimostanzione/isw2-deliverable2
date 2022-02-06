@@ -10,23 +10,21 @@ import java.util.List;
  */
 public class GraphicBugLifecycleVisualizerRecord extends ExportableAsDatasetRecord {
     private List<Version> versionList;
-    private List<Bug> bugList;
     private String bugId;
     private List<String> values = new ArrayList<>();
-    private List<JIRAAffectedVersionsCheck> JIRACheck;
+    private List<JIRAAffectedVersionsCheck> jiraCheck;
 
-    public GraphicBugLifecycleVisualizerRecord(List<Version> versionList, List<Bug> bugList) {
+    public GraphicBugLifecycleVisualizerRecord(List<Version> versionList) {
         super();
         this.versionList = versionList;
-        this.bugList = bugList;
     }
 
     public List<JIRAAffectedVersionsCheck> getJIRACheck() {
-        return JIRACheck;
+        return jiraCheck;
     }
 
     public void setJIRACheck(List<JIRAAffectedVersionsCheck> jIRACheck) {
-        JIRACheck = jIRACheck;
+        jiraCheck = jIRACheck;
     }
 
 
@@ -49,12 +47,12 @@ public class GraphicBugLifecycleVisualizerRecord extends ExportableAsDatasetReco
     }
 
     private String getJIRACheckAsString() {
-        String ret = "";
-        for (Integer i = 0; i < this.JIRACheck.size(); i++) {
-            String error = this.JIRACheck.get(i).toString();
-            ret += i == this.JIRACheck.size() - 1 ? error : error + "*";
+        StringBuilder sb = new StringBuilder();
+        for (Integer i = 0; i < this.jiraCheck.size(); i++) {
+            String error = this.jiraCheck.get(i).toString();
+            sb.append(i == this.jiraCheck.size() - 1 ? error : error).append("*");
         }
-        return ret;
+        return sb.toString();
     }
 
     @Override

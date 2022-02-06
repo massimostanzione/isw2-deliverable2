@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
-    private final static String ARFF_CONST_RELATION = "@RELATION";
-    private final static String ARFF_CONST_ATTRIBUTE = "@ATTRIBUTE";
-    private final static String ARFF_CONST_DATA = "@DATA";
-    private final static String ARFF_CONST_ATTRTYPE_NUMERIC = "NUMERIC";
-    private final static String ARFF_CONST_ATTRTYPE_STRING = "STRING";
-    private final static String ARFF_CONST_ATTRTYPE_BOOLEAN = "{true,false}";
+    private static final String ARFF_CONST_RELATION = "@RELATION";
+    private static final String ARFF_CONST_ATTRIBUTE = "@ATTRIBUTE";
+    private static final String ARFF_CONST_DATA = "@DATA";
+    private static final String ARFF_CONST_ATTRTYPE_NUMERIC = "NUMERIC";
+    private static final String ARFF_CONST_ATTRTYPE_STRING = "STRING";
+    private static final String ARFF_CONST_ATTRTYPE_BOOLEAN = "{true,false}";
     private static ARFFExporterPrinter instance;
 
     private ARFFExporterPrinter() {
@@ -40,41 +40,46 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
             if (alreadyExists)
                 log.finer("ARFF target file already exists.");
             fileWriter = new FileWriter(file);
-            if (dataset.size() > 0) {
+            if (!dataset.isEmpty()) {
                 fileWriter.append(generateHeader(relationName, dataset.size(), dataset.get(0).size()));
-                fileWriter.append(ARFF_CONST_RELATION + "\t" + relationName + "\n\n");
-                Integer i = -1;
-                for (String attribute : dataset.get(0)) {
-                    i++;
-                    String attrType = NumberUtils.isParsable(dataset.get(1).get(i)) ? ARFF_CONST_ATTRTYPE_NUMERIC
-                            : ARFF_CONST_ATTRTYPE_STRING;
-                    if (i == dataset.get(0).size() - 1) {
-                        attrType = ARFF_CONST_ATTRTYPE_BOOLEAN;
-                    }
-                    fileWriter.append(ARFF_CONST_ATTRIBUTE + "\t" + attribute + "\t" + attrType + "\n");
-                }
-                fileWriter.append("\n" + ARFF_CONST_DATA + "\n");
-                Integer j = -1, l = -1;
-                if (dataset.size() > 0) {
-                    Integer recordDim = dataset.get(0).size();
-                    for (List<String> record : dataset) {
-                        j++;
-                        l = -1;
-                        for (String value : record) {
-                            l++;
-                            if (j > 0) {
-                                // Skip attributes (first row)
-                                fileWriter.append(value);
-                                fileWriter.append(l + 1 < recordDim ? "," : "\n");
-                            }
+                fileWriter.append(ARFF_CONST_RELATION + "\t" + relationName + "\n\n" +
+                        determineAttrTypes(dataset) + "\n" + ARFF_CONST_DATA + "\n");
+                Integer j = -1;
+                Integer l = -1;
+                Integer recordDim = dataset.get(0).size();
+                for (List<String> datasetRecord : dataset) {
+                    j++;
+                    l = -1;
+                    for (String value : datasetRecord) {
+                        l++;
+                        if (j > 0) {
+                            // Skip attributes (first row)
+                            fileWriter.append(value);
+                            fileWriter.append(l + 1 < recordDim ? "," : "\n");
                         }
                     }
+
                 }
             }
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String determineAttrTypes(List<List<String>> dataset) {
+        String ret = "";
+        Integer i = -1;
+        for (String attribute : dataset.get(0)) {
+            i++;
+            String attrType = NumberUtils.isParsable(dataset.get(1).get(i)) ? ARFF_CONST_ATTRTYPE_NUMERIC
+                    : ARFF_CONST_ATTRTYPE_STRING;
+            if (i == dataset.get(0).size() - 1) {
+                attrType = ARFF_CONST_ATTRTYPE_BOOLEAN;
+            }
+            ret += ARFF_CONST_ATTRIBUTE + "\t" + attribute + "\t" + attrType + "\n";
+        }
+        return ret;
     }
 
     /**
@@ -123,7 +128,7 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
     @Override
     public List<List<String>> convertToSpecificExportable(List<?> objList) {
         List<List<String>> ret = new ArrayList<>();
-        if (objList.size() > 0) {
+        if (!objList.isEmpty()) {
             ret = Stream
                     .concat(ret.stream(), ((ExportableAsDatasetRecord) objList.get(0)).getDatasetAttributes().stream())
                     .collect(Collectors.toList());

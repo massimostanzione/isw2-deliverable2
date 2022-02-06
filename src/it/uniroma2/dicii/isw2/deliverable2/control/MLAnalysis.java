@@ -37,6 +37,13 @@ import java.util.stream.Stream;
  */
 public class MLAnalysis {
     private static Logger log = LoggerInst.getSingletonInstance();
+    private static String root = "./output/";
+    private static String tr = "/dataset/training/TR";
+    private static String te = "/dataset/training/TE";
+    private static String datasetStr = "/dataset/dataset.csv";
+
+    private MLAnalysis() {
+    }
 
     /**
      * Perform ML analysis via Weka API.
@@ -68,14 +75,16 @@ public class MLAnalysis {
         costSensitiveMethods.add(new NoCostSensitive());
         costSensitiveMethods.add(new SensitiveThreshold());
         costSensitiveMethods.add(new SensitiveLearning());
-        Instances trainInst = null, testInst = null;
+        Instances trainInst = null;
+        Instances testInst = null;
         log.fine(() -> "Version\tFeatureSel\t\t\tCostSensitive\t\t\tClassifier");
         // Walk forward
         for (int index = 1; index < (versionList.size() / 2); index++) {
-            ConverterUtils.DataSource trainingDS, testingDS;
-            trainingDS = new ConverterUtils.DataSource("./output/" + projName + "/dataset/training/TR" + (index) + ".arff");
+            ConverterUtils.DataSource trainingDS;
+            ConverterUtils.DataSource testingDS;
+            trainingDS = new ConverterUtils.DataSource(root + projName + tr + (index) + ".arff");
             trainInst = trainingDS.getDataSet();
-            testingDS = new ConverterUtils.DataSource("./output/" + projName + "/dataset/testing/TE" + (index + 1) + ".arff");
+            testingDS = new ConverterUtils.DataSource(root + projName + "/dataset/testing/TE" + (index + 1) + ".arff");
             testInst = testingDS.getDataSet();
 
             // Perform analysis
@@ -83,76 +92,7 @@ public class MLAnalysis {
                 for (FeatureSelectionMethod fs : featureSelectionMethods) {
                     for (Sampling sam : samplingMethods) {
                         for (CostSensitive cs : costSensitiveMethods) {
-                            int finalIndex = index;
-                            log.fine(() -> versionList.get(finalIndex - 1).getName() + "\t" + fs.getClass().getSimpleName() + "\t\t\t" + cs.getClass().getSimpleName() + "\t\t\t" + cl.getClass().getSimpleName());
-
-                            // Convert string attributes to "Nom.",
-                            // as to be parsed by Weka, like in GUI
-                            StringToNominal stringtoNominal = new StringToNominal();
-                            stringtoNominal.setAttributeRange("1-2");
-                            stringtoNominal.setInputFormat(testInst);
-
-                            trainInst = Filter.useFilter(trainInst, stringtoNominal);
-                            testInst = Filter.useFilter(testInst, stringtoNominal);
-
-                            Filter FSFilter = fs.getFSFilter();
-                            if (FSFilter != null) {
-                                FSFilter.setInputFormat(trainInst);
-                                testInst = Filter.useFilter(testInst, FSFilter);
-                                trainInst = Filter.useFilter(trainInst, FSFilter);
-                            }
-                            testInst.setClassIndex(testInst.numAttributes() - 1);
-                            trainInst.setClassIndex(trainInst.numAttributes() - 1);
-
-                            Classifier finalClassifier = cs.getFilteredClassifier(sam.getFilteredClassifier(cl, trainInst), trainInst);
-
-                            finalClassifier.buildClassifier(trainInst);
-
-                            Evaluation eval = null;
-                            eval = new Evaluation(testInst);
-                            eval.evaluateModel(finalClassifier, testInst);
-
-                            Double trainDefectivePrc = determinePrc("./output/" + projName + "/dataset/training/TR" + (index + 1) + ".csv",
-                                    "./output/" + projName + "/dataset/dataset.csv");
-                            Double testDefectivePrc = determinePrc("./output/" + projName + "/dataset/testing/TE" + (index + 1) + ".csv",
-                                    "./output/" + projName + "/dataset/dataset.csv");
-                            double trainPrc;
-                            Path trainPath = Paths.get("./output/" + projName + "/dataset/training/TR" + (index) + ".csv");
-                            Path datasetPath = Paths.get("./output/" + projName + "/dataset/dataset.csv");
-                            Stream<String> str = null;
-                            try {
-                                str = Files.lines(trainPath);
-                            } finally {
-                                if (str != null)
-                                    str.close();
-                            }
-                            List<String> listDS = Files.readAllLines(datasetPath);
-                            trainPrc = ((double) 100 * str.count() - 1) / (listDS.size() - 1);
-
-                            MLRecord ml = new MLRecord();
-
-                            ml.setProjName(projName);
-                            ml.setTrainNo(index);
-                            ml.setTrainPerc(trainPrc);
-                            ml.setTrainDefect(trainDefectivePrc);
-                            ml.setTestDefect(testDefectivePrc);
-
-                            ml.setClassifier(cl);
-                            ml.setFeatureSelection(fs.getClass().getSimpleName());
-                            ml.setBalancing(sam.getClass().getSimpleName());
-                            ml.setSensitivity(cs.getClass().getSimpleName());
-
-                            ml.setConfusionMatrix(eval.confusionMatrix());
-                            ml.setTP(eval.numTruePositives(0));
-                            ml.setFP(eval.numFalsePositives(0));
-                            ml.setTN(eval.numTrueNegatives(0));
-                            ml.setFN(eval.numFalseNegatives(0));
-
-                            ml.setPrecision(eval.precision(0));
-                            ml.setRecall(eval.recall(0));
-                            ml.setAUC(eval.areaUnderROC(0));
-                            ml.setKappa(eval.kappa());
-                            mlAnalysis.add(ml);
+                            mlAnalysis.add(runAnalysisExecutive(cl, fs, sam, cs, trainInst, testInst, index, versionList, projName));
                         }
                     }
                 }
@@ -160,6 +100,78 @@ public class MLAnalysis {
         }
         CSVExporterPrinter.getSingletonInstance().convertAndExport(mlAnalysis, "/output/" + projName + "/machinelearning/final.csv");
         log.info(() -> "- Weka ML analysis terminated.");
+    }
+
+    private static MLRecord runAnalysisExecutive(Classifier cl, FeatureSelectionMethod fs, Sampling sam, CostSensitive cs, Instances trainInst, Instances testInst,
+                                                 int index, List<Version> versionList, String projName) throws Exception {
+        int finalIndex = index;
+        log.fine(() -> versionList.get(finalIndex - 1).getName() + "\t" + fs.getClass().getSimpleName() + "\t\t\t" + cs.getClass().getSimpleName() + "\t\t\t" + cl.getClass().getSimpleName());
+
+        // Convert string attributes to "Nom.",
+        // as to be parsed by Weka, like in GUI
+        StringToNominal stringtoNominal = new StringToNominal();
+        stringtoNominal.setAttributeRange("1-2");
+        stringtoNominal.setInputFormat(testInst);
+
+        trainInst = Filter.useFilter(trainInst, stringtoNominal);
+        testInst = Filter.useFilter(testInst, stringtoNominal);
+
+        Filter fsFilter = fs.getFSFilter();
+        if (fsFilter != null) {
+            fsFilter.setInputFormat(trainInst);
+            testInst = Filter.useFilter(testInst, fsFilter);
+            trainInst = Filter.useFilter(trainInst, fsFilter);
+        }
+        testInst.setClassIndex(testInst.numAttributes() - 1);
+        trainInst.setClassIndex(trainInst.numAttributes() - 1);
+
+        Classifier finalClassifier = cs.getFilteredClassifier(sam.getFilteredClassifier(cl, trainInst), trainInst);
+
+        finalClassifier.buildClassifier(trainInst);
+
+        Evaluation eval = null;
+        eval = new Evaluation(testInst);
+        eval.evaluateModel(finalClassifier, testInst);
+
+        Double trainDefectivePrc = determinePrc(root + projName + tr + (index + 1) + ".csv",
+                root + projName + datasetStr);
+        Double testDefectivePrc = determinePrc(root + projName + "/dataset/testing/TE" + (index + 1) + ".csv",
+                root + projName + datasetStr);
+        double trainPrc;
+        Path trainPath = Paths.get(root + projName + tr + (index) + ".csv");
+        Path datasetPath = Paths.get(root + projName + datasetStr);
+        Stream<String> str = null;
+        try {
+            str = Files.lines(trainPath);
+            List<String> listDS = Files.readAllLines(datasetPath);
+            trainPrc = ((double) 100 * str.count() - 1) / (listDS.size() - 1);
+        } finally {
+            if (str != null)
+                str.close();
+        }
+        MLRecord ml = new MLRecord();
+        ml.setProjName(projName);
+        ml.setTrainNo(index);
+        ml.setTrainPerc(trainPrc);
+        ml.setTrainDefect(trainDefectivePrc);
+        ml.setTestDefect(testDefectivePrc);
+
+        ml.setClassifier(cl);
+        ml.setFeatureSelection(fs.getClass().getSimpleName());
+        ml.setBalancing(sam.getClass().getSimpleName());
+        ml.setSensitivity(cs.getClass().getSimpleName());
+
+        ml.setConfusionMatrix(eval.confusionMatrix());
+        ml.setTp(eval.numTruePositives(0));
+        ml.setFp(eval.numFalsePositives(0));
+        ml.setTn(eval.numTrueNegatives(0));
+        ml.setFn(eval.numFalseNegatives(0));
+
+        ml.setPrecision(eval.precision(0));
+        ml.setRecall(eval.recall(0));
+        ml.setAuc(eval.areaUnderROC(0));
+        ml.setKappa(eval.kappa());
+        return ml;
     }
 
     /**

@@ -13,12 +13,12 @@ public class SensitiveLearning implements CostSensitive {
     public Classifier getFilteredClassifier(Classifier cl, Instances insts) {
         CostSensitiveClassifier cscl = new CostSensitiveClassifier();
         cscl.setClassifier(cl);
-        CostMatrix costMatrix = new CostMatrix(2);
-        costMatrix.setCell(0, 0, Double.valueOf((double) 0.0));
-        costMatrix.setCell(0, 1, Double.valueOf((double) 10.0));
-        costMatrix.setCell(1, 0, Double.valueOf((double) 1.0));
-        costMatrix.setCell(1, 1, Double.valueOf((double) 0.0));
-        cscl.setCostMatrix(costMatrix);
+        CostMatrix cm = new CostMatrix(2);
+        cm.setCell(0, 0, Double.valueOf(0.0));
+        cm.setCell(0, 1, Double.valueOf(10.0));
+        cm.setCell(1, 0, Double.valueOf(1.0));
+        cm.setCell(1, 1, Double.valueOf(0.0));
+        cscl.setCostMatrix(cm);
         cscl.setMinimizeExpectedCost(false);
         return cscl;
     }

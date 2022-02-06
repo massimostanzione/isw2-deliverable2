@@ -10,13 +10,13 @@ import org.eclipse.jgit.lib.ObjectLoader;
 import java.io.IOException;
 
 /**
- * Added lines of code.
+ * Maximum amount of lines of code added in a version, updatet at a specific commit.
  */
-public class LOC_Added extends Metric {
+public class MaxLOCAdded extends Metric {
 
     @Override
     protected String initDatasetName() {
-        return "LOC_Added";
+        return "Max_LOC_Added";
     }
 
     @Override
@@ -25,9 +25,10 @@ public class LOC_Added extends Metric {
     }
 
     @Override
-    public Float compute(Measure m, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df, DiffEntry diff,
-                         Integer addedLOCs, Integer removedLOCs, String author)
+    public Float compute(Measure m, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df,
+                         DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author)
             throws IOException {
-        return this.value + (float) (addedLOCs);
+        return Math.max(this.value, addedLOCs);
     }
+
 }
