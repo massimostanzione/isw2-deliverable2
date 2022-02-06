@@ -1,0 +1,396 @@
+Class...,... in version ...,... is touched by commit ...,... related to bug...,... which lifecycle is...
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,1,9eb549d4c308963af0be3288a59b0c4c39cbb5e6,BOOKKEEPER-142,1 2
+hedwig-server/src/test/java/org/apache/hedwig/server/subscriptions/TestUpdateSubscriptionState.java,1,0975f069d90748eb43fcec7622d3961b0446ea28,BOOKKEEPER-133,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestFencing.java,1,e32715ad96558a9941910dd6ae91fc1c646baeb6,BOOKKEEPER-148,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieClientTest.java,1,0d43f404ea145a35d46371967975f9590649a033,BOOKKEEPER-40,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1,c7c8af741a2f532b554dcdabf85237c23ea14aaa,BOOKKEEPER-150,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,1,c7c8af741a2f532b554dcdabf85237c23ea14aaa,BOOKKEEPER-150,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieRecoveryTest.java,1,c7c8af741a2f532b554dcdabf85237c23ea14aaa,BOOKKEEPER-150,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BaseTestCase.java,1,c7c8af741a2f532b554dcdabf85237c23ea14aaa,BOOKKEEPER-150,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerCreateOp.java,1,f56e596d70c66dac170008ffbe19489eee05be08,BOOKKEEPER-153,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/FlatLedgerManager.java,1,f56e596d70c66dac170008ffbe19489eee05be08,BOOKKEEPER-153,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/HierarchicalLedgerManager.java,1,f56e596d70c66dac170008ffbe19489eee05be08,BOOKKEEPER-153,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/LedgerManager.java,1,f56e596d70c66dac170008ffbe19489eee05be08,BOOKKEEPER-153,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,1,cfe3e650b69b2b599dd5b2f27f2164af38c7a2be,BOOKKEEPER-161,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieClient.java,1,3272204448bf210d03377ba822d01419ad197a17,BOOKKEEPER-167,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileInfo.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/JournalChannel.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCache.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDescriptor.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/LocalBookKeeper.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieJournalTest.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieLayoutVersionTest.java,1,c65d6ada34215ee3a5466c495d565d745857c435,BOOKKEEPER-137,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerRecoveryOp.java,1,29a472598083e522645f918ec602dd91d800f0d5,BOOKKEEPER-162,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/ReadLastConfirmedOp.java,1,29a472598083e522645f918ec602dd91d800f0d5,BOOKKEEPER-162,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieProtocol.java,1,29a472598083e522645f918ec602dd91d800f0d5,BOOKKEEPER-162,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieReadWriteTest.java,1,29a472598083e522645f918ec602dd91d800f0d5,BOOKKEEPER-162,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/DigestManager.java,1,5a3b29d05abd71c6e5d1b3045abafd434db15f24,BOOKKEEPER-152,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/DistributionSchedule.java,1,5a3b29d05abd71c6e5d1b3045abafd434db15f24,BOOKKEEPER-152,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/RoundRobinDistributionSchedule.java,1,5a3b29d05abd71c6e5d1b3045abafd434db15f24,BOOKKEEPER-152,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java,1,5a3b29d05abd71c6e5d1b3045abafd434db15f24,BOOKKEEPER-152,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,1,3defe9e5110472da995789b5ae14c286f58f1293,BOOKKEEPER-171,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/EntryLogTest.java,1,633a23b3a20b27a551328be2efe5f057be3c99e2,BOOKKEEPER-170,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerCacheTest.java,1,633a23b3a20b27a551328be2efe5f057be3c99e2,BOOKKEEPER-170,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ConcurrentLedgerTest.java,1,633a23b3a20b27a551328be2efe5f057be3c99e2,BOOKKEEPER-170,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieJournalRollingTest.java,1,014bcd501c14141facd0e3eb4bb488ccba3a2b7d,BOOKKEEPER-174,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/IndexCorruptionTest.java,1,9523193456992a2edd36106120a8a9f246af6995,BOOKKEEPER-177,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1,431554da9e2598c73edfbaf671e87cfd9ae94716,BOOKKEEPER-176,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/AbstractZkLedgerManager.java,1,431554da9e2598c73edfbaf671e87cfd9ae94716,BOOKKEEPER-176,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/ExitCode.java,1,cb8296636b961253f9586f535db285bfafa54a8a,BOOKKEEPER-180,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieException.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Cookie.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CompactionTest.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CookieTest.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/UpgradeTest.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieZKExpireTest.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ZooKeeperUtil.java,1,c6cc7cca3a85603c8e935ba6d06fbf3d8d7a7eb5,BOOKKEEPER-163,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestReadTimeout.java,1,a4bded985ca1346a17ee0dcf08fe9dcd570dcfb7,BOOKKEEPER-184,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/HierarchicalLedgerDeleteTest.java,1,a4bded985ca1346a17ee0dcf08fe9dcd570dcfb7,BOOKKEEPER-184,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/LedgerLayoutTest.java,1,a4bded985ca1346a17ee0dcf08fe9dcd570dcfb7,BOOKKEEPER-184,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/TestLedgerManager.java,1,a4bded985ca1346a17ee0dcf08fe9dcd570dcfb7,BOOKKEEPER-184,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookKeeperClusterTestCase.java,1,a4bded985ca1346a17ee0dcf08fe9dcd570dcfb7,BOOKKEEPER-184,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/LedgerDeleteTest.java,1,a4bded985ca1346a17ee0dcf08fe9dcd570dcfb7,BOOKKEEPER-184,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingReadOp.java,1,3abac4eb86d64286d057d73024a177ef300283b0,BOOKKEEPER-186,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieThrottleTest.java,1,3abac4eb86d64286d057d73024a177ef300283b0,BOOKKEEPER-186,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,1,f3a404e4e6b0d0c2a0b2a83d38cdedaff0683e68,BOOKKEEPER-188,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,1,48304c7c07513a15d26cb61f311c9f4b998fd8fc,BOOKKEEPER-190,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerCacheTest.java,1,48304c7c07513a15d26cb61f311c9f4b998fd8fc,BOOKKEEPER-190,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/SnapshotMap.java,1,30c68b0bebff1e0a012dd81e8f05ebbf83b4ff5f,BOOKKEEPER-193,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/GcLedgersTest.java,1,30c68b0bebff1e0a012dd81e8f05ebbf83b4ff5f,BOOKKEEPER-193,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/LedgerManagerTestCase.java,1,30c68b0bebff1e0a012dd81e8f05ebbf83b4ff5f,BOOKKEEPER-193,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,1,682a23fb23c8de7756d5ef226fd6e97dd8d4e561,BOOKKEEPER-112,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/CloseTest.java,1,682a23fb23c8de7756d5ef226fd6e97dd8d4e561,BOOKKEEPER-112,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BKException.java,1,47244dd77fb291ec95d5da4c96751ea92bc2d516,BOOKKEEPER-135,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,1,47244dd77fb291ec95d5da4c96751ea92bc2d516,BOOKKEEPER-135,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingAddOp.java,1,47244dd77fb291ec95d5da4c96751ea92bc2d516,BOOKKEEPER-135,1 2
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchBookie.java,1,f694716e289c448ab89cab5fa81ea0946f9d9193,BOOKKEEPER-207,1 2
+bookkeeper-benchmark/src/test/java/org/apache/bookkeeper/benchmark/TestBenchmark.java,1,f694716e289c448ab89cab5fa81ea0946f9d9193,BOOKKEEPER-207,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/LedgerCreateDeleteTest.java,1,8f02fb64ec9612af8422f23ed7908d7f6ccf5332,BOOKKEEPER-212,1 2
+hedwig-server/src/main/java/org/apache/hedwig/admin/HedwigAdmin.java,1,8a1ad4c3208ad0e5b546ab8e5738132698fa56f5,BOOKKEEPER-197,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,1,2f25ef611dd2c8ea2c94b48af09f183d74b6167e,BOOKKEEPER-173,1 2
+hedwig-client/src/main/java/org/apache/hedwig/client/exceptions/AlreadyStartDeliveryException.java,1,f7c1ad57ead301df4d3326b5d8c8950964387fa9,BOOKKEEPER-56,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,1,6fc326ebd647afbbcc0beab6764b5d3748e50088,BOOKKEEPER-232,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Journal.java,1,6fc326ebd647afbbcc0beab6764b5d3748e50088,BOOKKEEPER-232,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/IOUtils.java,1,6fc326ebd647afbbcc0beab6764b5d3748e50088,BOOKKEEPER-232,1 2
+hedwig-server/src/test/java/org/apache/hedwig/server/persistence/TestDeadlock.java,1,3e224c4b6d4a0d9317060f7fe0d3519fccc68f5a,BOOKKEEPER-215,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ConfigurationTest.java,1,9efe73998fe1ee72ffae95f3e1b1e65884019710,BOOKKEEPER-242,1 2
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/HedwigCommands.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/HedwigConsole.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/ReadTopic.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+hedwig-server/src/main/java/org/apache/hedwig/server/handlers/NettyHandlerBean.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+hedwig-server/src/main/java/org/apache/hedwig/server/netty/ServerStats.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+hedwig-client/src/main/java/org/apache/hedwig/filter/ClientMessageFilter.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+hedwig-server/src/test/java/org/apache/hedwig/server/TestPubSubServerStartup.java,1,73dc3481846fdc0c97944c6a7c6ce0cef17ee938,BOOKKEEPER-72,1 2
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,1,67cbcdd7a2d1668c9bba0d45d6ea3235e4bd11e3,BOOKKEEPER-263,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,1,67cbcdd7a2d1668c9bba0d45d6ea3235e4bd11e3,BOOKKEEPER-263,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/AbstractConfiguration.java,1,67cbcdd7a2d1668c9bba0d45d6ea3235e4bd11e3,BOOKKEEPER-263,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerEntryPage.java,1,a1eac18799ddc640bd42e6c038a31e1e26769056,BOOKKEEPER-260,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/AsyncCallback.java,1,a1eac18799ddc640bd42e6c038a31e1e26769056,BOOKKEEPER-260,1 2
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/ReadOnlyLedgerHandle.java,1,a1eac18799ddc640bd42e6c038a31e1e26769056,BOOKKEEPER-260,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/proto/TestProtoVersions.java,1,1dde3e5191e51a6f648c0d16b14ecc1e02fcff0a,BOOKKEEPER-258,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookKeeperTest.java,1,10b9c5b40bcb66690f6a25330500610c8b296779,BOOKKEEPER-281,1 2
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/TestBackwardCompat.java,1,18728877881a23d2639eb650d47b7c41bbccd9ca,BOOKKEEPER-292,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,1,d193780cc404c2e3694c82385d7f422accc416f3,BOOKKEEPER-307,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Journal.java,1,d193780cc404c2e3694c82385d7f422accc416f3,BOOKKEEPER-307,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerCreateOp.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerRecoveryOp.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingAddOp.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingReadOp.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/ReadLastConfirmedOp.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/DataFormats.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieRecoveryTest.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+hedwig-protocol/src/main/java/org/apache/hedwig/protocol/PubSubProtocol.java,1,744edf07394472d3146e57831592a69d5a86616c,BOOKKEEPER-303,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/persistence/TestBookKeeperPersistenceManager.java,2,4d15e5675c0394cb910e54c9b0d9743e98fb64c7,BOOKKEEPER-302,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/ReadOnlyLedgerHandle.java,1,de432058b7e7c026fcf0b69b1e20bcf9ae1b1de2,BOOKKEEPER-280,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1,763479b6f94fd4827ee28e9f698cfa9a31095061,BOOKKEEPER-324,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,1,763479b6f94fd4827ee28e9f698cfa9a31095061,BOOKKEEPER-324,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,2,09e5d180231f5307a58a89d0c89169bca890bddf,BOOKKEEPER-294,2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieInitializationTest.java,2,09e5d180231f5307a58a89d0c89169bca890bddf,BOOKKEEPER-294,2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieJournalTest.java,2,09e5d180231f5307a58a89d0c89169bca890bddf,BOOKKEEPER-294,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BKStats.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/ServerStats.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/LocalBookKeeper.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-common/src/main/java/org/apache/bookkeeper/common/util/MathUtils.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/proto/TestBKStats.java,1,df619306ca4c6dd9eba94cbc5ce159e43a5b9ee5,BOOKKEEPER-327,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,2,051320f212b2a6263d2d95db780db62911b9c0f6,BOOKKEEPER-349,2 3
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/HedwigConsole.java,1,3de1c6668a60999230f446011ca27fa7629b4465,BOOKKEEPER-330,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/netty/ServerStats.java,1,3de1c6668a60999230f446011ca27fa7629b4465,BOOKKEEPER-330,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/netty/TestServerStats.java,1,3de1c6668a60999230f446011ca27fa7629b4465,BOOKKEEPER-330,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/netty/PubSubServerBean.java,2,4088f7ac7b700588a935485b0a9723a36cc995f3,BOOKKEEPER-343,2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java,2,391f9246890b416398e48886fe5ed3c4d2e866ab,BOOKKEEPER-326,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/AbstractZkLedgerManager.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/ZkVersion.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/versioning/Version.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/TestZkVersion.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/TopicOwnershipManager.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/TopicPersistenceManager.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/ZkMetadataManagerFactory.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/topics/MMTopicManager.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/meta/TestMetadataManager.java,1,f4daacff80da6802528320f5a920e1989cf20fac,BOOKKEEPER-338,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieWriteLedgerTest.java,1,cb8415d5defb27efeb8fa7ab1c92a60d4f5c31af,BOOKKEEPER-337,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/exceptions/NoResponseHandlerException.java,1,fbfd10fa94d909144c369e1514db31669a16872b,BOOKKEEPER-371,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,2,06b50969499330d4a5421b48a042fdee63857d23,BOOKKEEPER-387,2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/UpgradeTest.java,2,06b50969499330d4a5421b48a042fdee63857d23,BOOKKEEPER-387,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/FlatLedgerManager.java,2,6f364a214d2b65f5823af2e5699bbc59dc08a4c9,BOOKKEEPER-383,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/HierarchicalLedgerManager.java,2,6f364a214d2b65f5823af2e5699bbc59dc08a4c9,BOOKKEEPER-383,2 3
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,2,26671da549558c4b16da42f2eabfad65fa223831,BOOKKEEPER-396,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerDeleteOp.java,1,4f2b11213baf8551ef778599b14a6fc17d95f21d,BOOKKEEPER-403,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerFragmentReplicator.java,1,4f2b11213baf8551ef778599b14a6fc17d95f21d,BOOKKEEPER-403,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,1,4f2b11213baf8551ef778599b14a6fc17d95f21d,BOOKKEEPER-403,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/OrderedSafeExecutor.java,1,4f2b11213baf8551ef778599b14a6fc17d95f21d,BOOKKEEPER-403,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/NetUtils.java,1,c4519d96d592967aaad1d056db3d31cbe56de865,BOOKKEEPER-415,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/TestBackwardCompat.java,1,c4519d96d592967aaad1d056db3d31cbe56de865,BOOKKEEPER-415,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/delivery/TestThrottlingDelivery.java,1,c4519d96d592967aaad1d056db3d31cbe56de865,BOOKKEEPER-415,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/simple/SimpleSubscribeResponseHandler.java,1,db1484669db7076d71b0ad890f8867e86a18229f,BOOKKEEPER-427,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,1,eb01b7c1a9d22a55f0107d8b3ba60807d4fd05f4,BOOKKEEPER-424,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/AutoRecoveryMain.java,1,eb01b7c1a9d22a55f0107d8b3ba60807d4fd05f4,BOOKKEEPER-424,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ZkUtils.java,1,eb01b7c1a9d22a55f0107d8b3ba60807d4fd05f4,BOOKKEEPER-424,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/TestLedgerUnderreplicationManager.java,1,eb01b7c1a9d22a55f0107d8b3ba60807d4fd05f4,BOOKKEEPER-424,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/TestReplicationWorker.java,1,eb01b7c1a9d22a55f0107d8b3ba60807d4fd05f4,BOOKKEEPER-424,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ZooKeeperUtil.java,1,eb01b7c1a9d22a55f0107d8b3ba60807d4fd05f4,BOOKKEEPER-424,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/zookeeper/ZooKeeperWatcherBase.java,1,2c7236cf339a2de3cf3fbc0aaa8cd88cc4398ca0,BOOKKEEPER-424,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/admin/HedwigAdmin.java,1,223a3fb3fbc78fe4dc1922967fe3daa3edfc3fb2,BOOKKEEPER-439,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/ReadTopic.java,1,223a3fb3fbc78fe4dc1922967fe3daa3edfc3fb2,BOOKKEEPER-439,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Cookie.java,1,536d86ec4b93909e870d6bc65fba7037360ea036,BOOKKEEPER-425,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,1,536d86ec4b93909e870d6bc65fba7037360ea036,BOOKKEEPER-425,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/BookieLedgerIndexer.java,1,536d86ec4b93909e870d6bc65fba7037360ea036,BOOKKEEPER-425,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/StringUtils.java,1,536d86ec4b93909e870d6bc65fba7037360ea036,BOOKKEEPER-425,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorBookieTest.java,1,536d86ec4b93909e870d6bc65fba7037360ea036,BOOKKEEPER-425,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorLedgerCheckerTest.java,1,536d86ec4b93909e870d6bc65fba7037360ea036,BOOKKEEPER-425,1 2 3
+bookkeeper-benchmark/src/test/java/org/apache/bookkeeper/benchmark/TestBenchmark.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CookieTest.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/TestLedgerManager.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookKeeperClusterTestCase.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieZKExpireTest.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/NIOServerFactoryTest.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/PortManager.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/client/netty/TestMultiplexing.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/TestPubSubServerStartup.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/filter/TestMessageFilter.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/persistence/MessageBoundedPersistenceTest.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/persistence/TestDeadlock.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/subscriptions/TestUpdateSubscriptionState.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/topics/TestConcurrentTopicAcquisition.java,1,b3a05cd74652affe4a69f40609de0b92769e05a4,BOOKKEEPER-467,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/VoidCallbackAdapter.java,1,d3ee645781a1ed422d53a027e3d397451dd4c0d2,BOOKKEEPER-479,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ReadOnlyBookieTest.java,1,38336805e367664fbda2a9c6993d5d343c956752,BOOKKEEPER-477,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/HedwigCommands.java,2,0d198abad7b41d8326913384967aeb1239ab0528,BOOKKEEPER-457,2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/FactoryLayout.java,2,0d198abad7b41d8326913384967aeb1239ab0528,BOOKKEEPER-457,2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/MetadataManagerFactory.java,2,0d198abad7b41d8326913384967aeb1239ab0528,BOOKKEEPER-457,2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/meta/TestMetadataManagerFactory.java,2,0d198abad7b41d8326913384967aeb1239ab0528,BOOKKEEPER-457,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerFragment.java,1,aa1fecd255bcc3c23d4037c675df88c9c0ba78ab,BOOKKEEPER-481,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/AbstractConfiguration.java,1,aa1fecd255bcc3c23d4037c675df88c9c0ba78ab,BOOKKEEPER-481,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,1,aa1fecd255bcc3c23d4037c675df88c9c0ba78ab,BOOKKEEPER-481,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/proto/TestPerChannelBookieClient.java,1,100785f6f1feb2e6dd1c7de769adab5c88e87427,BOOKKEEPER-485,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookKeeperTest.java,1,c958b32da81936cee535c411f2214d900f54442c,BOOKKEEPER-351,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,2,f12b7896e1640bed64cedb0d96bdd82b6cf26a86,BOOKKEEPER-336,2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestSpeculativeRead.java,2,f12b7896e1640bed64cedb0d96bdd82b6cf26a86,BOOKKEEPER-336,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/jmx/BKMBeanRegistry.java,1,6a6d25e7e9a2c3cc4370799ec2529915929e5acc,BOOKKEEPER-291,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/ResubscribeCallback.java,1,6030beaba9e770db9b856b8de1b06dab843b2ccc,BOOKKEEPER-470,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/simple/SubscribeReconnectCallback.java,1,6030beaba9e770db9b856b8de1b06dab843b2ccc,BOOKKEEPER-470,1 2 3
+hedwig-server/src/main/java/org/apache/hedwig/server/persistence/ReadAheadCacheBean.java,1,7f67e765c73890a2f838ec8f5d43b814ce42c84b,BOOKKEEPER-461,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieReadWriteTest.java,1,40ac04bfee52f2e0fd45397cf5d02fa31236c753,BOOKKEEPER-474,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CreateNewLogTest.java,1,7d3dde696ae859297ece4e2c9a047afde4fa5865,BOOKKEEPER-465,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/GcLedgersTest.java,1,7fa41ff318a31f973d1de12afe8db0f9893ac653,BOOKKEEPER-497,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDirsManager.java,1,55610c26eb3b8b4cd5dd1955a434c2642334c605,BOOKKEEPER-493,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerDirsManagerTest.java,1,55610c26eb3b8b4cd5dd1955a434c2642334c605,BOOKKEEPER-493,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerRecoveryTest.java,1,b6c1a8bbd7c2d44c2edb59d9938fa073f6f478de,BOOKKEEPER-365,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,2,496f442a7a68dd549355e845540c6c72c2fbb44c,BOOKKEEPER-336,2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileInfo.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/JournalChannel.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCache.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDescriptor.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDescriptorImpl.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDescriptorReadOnlyImpl.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerStorage.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestFencing.java,1,d69986c4df6b51ed6ed27c5f45a7b6850e69dacd,BOOKKEEPER-500,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/LoggingExceptionHandler.java,1,a0ae97c232caafa1fda9955f9aaa9f99564b74fe,BOOKKEEPER-522,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/integration/TestHedwigHubProxy.java,1,a0ae97c232caafa1fda9955f9aaa9f99564b74fe,BOOKKEEPER-522,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/integration/TestHedwigHubRegular.java,1,a0ae97c232caafa1fda9955f9aaa9f99564b74fe,BOOKKEEPER-522,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/integration/TestHedwigHubSSL.java,1,a0ae97c232caafa1fda9955f9aaa9f99564b74fe,BOOKKEEPER-522,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerCacheTest.java,1,7de3ecbd5d5052138a9c4aded9256c5030ab2f6d,BOOKKEEPER-447,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieClient.java,1,8a396e1f74ff9f9cf25d3b4bfc43c8a112992555,BOOKKEEPER-520,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/exceptions/ResubscribeException.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/CleanupChannelMap.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/AbstractSubscribeResponseHandler.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/ActiveSubscriber.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/multiplex/MultiplexHChannelManager.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/multiplex/MultiplexSubscribeResponseHandler.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/simple/SimpleHChannelManager.java,1,a27b64e340a6ad12f1e9588d1d55fa51f0b2d1f0,BOOKKEEPER-55,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/client/TestSubAfterCloseSub.java,1,ee29f75f3f6a0168008da2e424e4174f2aee8cbb,BOOKKEEPER-507,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/NIOServerFactory.java,1,f0db18abedd30af1d6191d068652b93db0c68fc6,BOOKKEEPER-533,1 2 3
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/DiskChecker.java,1,f0db18abedd30af1d6191d068652b93db0c68fc6,BOOKKEEPER-533,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/IndexCorruptionTest.java,1,f0db18abedd30af1d6191d068652b93db0c68fc6,BOOKKEEPER-533,1 2 3
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorPeriodicCheckTest.java,1,4250c1f93962af30e6e40759e006035a7089613e,BOOKKEEPER-538,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/delivery/TestFIFODeliveryManager.java,1,1374b7ad2738f6c52a2aed1d0ee4e412aa382086,BOOKKEEPER-539,1 2 3
+hedwig-server/src/test/java/org/apache/hedwig/server/delivery/TestThrottlingDelivery.java,1,7bed2a74a98f49b31c1653a513944f60a359776c,BOOKKEEPER-544,1 2 3 4 5
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchReadThroughputLatency.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/MySqlClient.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/TestClient.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieException.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Cookie.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileInfo.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/JournalChannel.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/MacDigestManager.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/ZkLedgerUnderreplicationManager.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/metastore/Value.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieClient.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/HardLink.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/LocalBookKeeper.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/zookeeper/ZooKeeperWatcherBase.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-client-jms/src/main/java/org/apache/hedwig/jms/SessionImpl.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-client-jms/src/main/java/org/apache/hedwig/jms/spi/TopicPublisherImpl.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/NetUtils.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/admin/HedwigAdmin.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/HedwigConsole.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/ReadTopic.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/FactoryLayout.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/MsMetadataManagerFactory.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/server/meta/ZkMetadataManagerFactory.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/server/topics/ZkHubServerManager.java,1,f060c0d2745b47314562bc94ecb5f525e2addb07,BOOKKEEPER-561,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,1,3902ae5a6056ba6348f71c873d23f74ac32cebef,BOOKKEEPER-556,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,1,3902ae5a6056ba6348f71c873d23f74ac32cebef,BOOKKEEPER-556,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/ServerStats.java,1,3902ae5a6056ba6348f71c873d23f74ac32cebef,BOOKKEEPER-556,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerCacheTest.java,3,3bcabc5adb48e75dd041384ebcbb0017d56c3299,BOOKKEEPER-554,3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/HierarchicalLedgerManager.java,3,5b7b6835c74a11162164e90e66bb05a84411a8c2,BOOKKEEPER-568,3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/LedgerManagerIteratorTest.java,3,5b7b6835c74a11162164e90e66bb05a84411a8c2,BOOKKEEPER-568,3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,1,ddec89aebc9a55966d8bb6bc0ca4644f0d13fb52,BOOKKEEPER-569,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/AuditorElector.java,3,ea5a13d748918f495ad1cb1e37c0f995e3d53072,BOOKKEEPER-559,3 4
+hedwig-server/src/test/java/org/apache/hedwig/client/TestSubAfterCloseSub.java,1,94ea9a8629ce404566d875895208dabe82c99fbe,BOOKKEEPER-579,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/Auditor.java,1,9f0d2a3e2f4279921f8fa1df8aad708773124cd5,BOOKKEEPER-585,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,1,9f0d2a3e2f4279921f8fa1df8aad708773124cd5,BOOKKEEPER-585,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorPeriodicCheckTest.java,1,9f0d2a3e2f4279921f8fa1df8aad708773124cd5,BOOKKEEPER-585,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/AbstractZkLedgerManager.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/LedgerManagerFactory.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestSpeculativeRead.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/LedgerLayoutTest.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/TestLedgerManager.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieZKExpireTest.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ZooKeeperUtil.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-client-jms/src/main/java/org/apache/hedwig/jms/spi/HedwigMessagingSessionFacade.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-client-jms/src/test/java/org/apache/activemq/perf/ConnectionChurnTest.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-client-jms/src/test/java/org/apache/activemq/usecases/CompositePublishTest.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/HChannelHandler.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/main/java/org/apache/hedwig/admin/console/JLineHedwigCompletor.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/client/netty/TestMultiplexing.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/server/TestBackwardCompat.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/server/filter/TestMessageFilter.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/server/persistence/MessageBoundedPersistenceTest.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/server/persistence/TestDeadlock.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/server/subscriptions/TestUpdateSubscriptionState.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+hedwig-server/src/test/java/org/apache/hedwig/server/topics/TestConcurrentTopicAcquisition.java,1,f2bb5603ff33b8ac54bcdf2daddb61cf3e65de80,BOOKKEEPER-557,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ReadOnlyBookieTest.java,1,d1bb8ec0e7c65e241f55c8b700395570e0ee5daf,BOOKKEEPER-583,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerRecoveryOp.java,1,455aabfd3b6ffd4247f6df63cb29d0694b359cdd,BOOKKEEPER-581,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingReadOp.java,1,455aabfd3b6ffd4247f6df63cb29d0694b359cdd,BOOKKEEPER-581,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerRecoveryTest.java,1,455aabfd3b6ffd4247f6df63cb29d0694b359cdd,BOOKKEEPER-581,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/ScanAndCompareGarbageCollector.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/AbstractZkLedgerManager.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/FlatLedgerManager.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/HierarchicalLedgerManager.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/LedgerManager.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/MSLedgerManagerFactory.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/metastore/InMemoryMetastoreCursor.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/GcLedgersTest.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/LedgerManagerTestCase.java,3,b118823702e946ccdeb14843e2691fdd760a59e4,BOOKKEEPER-596,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,3,cdf138e24b76f934721eb1e82a226d0be296b838,BOOKKEEPER-599,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,3,685ca079690f8be2cbcfacb615fc0eb5a798b8da,BOOKKEEPER-584,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerMetadata.java,3,685ca079690f8be2cbcfacb615fc0eb5a798b8da,BOOKKEEPER-584,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingAddOp.java,3,685ca079690f8be2cbcfacb615fc0eb5a798b8da,BOOKKEEPER-584,3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieWriteLedgerTest.java,3,685ca079690f8be2cbcfacb615fc0eb5a798b8da,BOOKKEEPER-584,3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerCloseTest.java,3,685ca079690f8be2cbcfacb615fc0eb5a798b8da,BOOKKEEPER-584,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerBean.java,1,9e7a9e3fa310f16646d54fbd254dd8bf1b3285d4,BOOKKEEPER-556,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServerMXBean.java,1,9e7a9e3fa310f16646d54fbd254dd8bf1b3285d4,BOOKKEEPER-556,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/ServerStats.java,1,9e7a9e3fa310f16646d54fbd254dd8bf1b3285d4,BOOKKEEPER-556,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/AuditorElector.java,3,2f47e80bb34f6e60db4a0b22d37f4280eac8e869,BOOKKEEPER-559,3 4
+hedwig-server/src/test/java/org/apache/hedwig/client/TestSubAfterCloseSub.java,1,69899c2e51ab6ae505e73bc1939f1eba7fa4ab18,BOOKKEEPER-579,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/Auditor.java,1,30452d072bbf919fb1a602556fbcc7078a74bd36,BOOKKEEPER-585,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,1,30452d072bbf919fb1a602556fbcc7078a74bd36,BOOKKEEPER-585,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorPeriodicCheckTest.java,1,30452d072bbf919fb1a602556fbcc7078a74bd36,BOOKKEEPER-585,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerRecoveryOp.java,1,678143fc4a03563dbb75af173f8029e4eff07c63,BOOKKEEPER-581,1 2 3 4
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingReadOp.java,1,678143fc4a03563dbb75af173f8029e4eff07c63,BOOKKEEPER-581,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerRecoveryTest.java,1,678143fc4a03563dbb75af173f8029e4eff07c63,BOOKKEEPER-581,1 2 3 4
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java,1,3c62b4884b581fb1aaf148e914b41062479f4927,BOOKKEEPER-577,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,4,a3de791cb79873c4f9b99e7ac1b9ade75ea225ac,BOOKKEEPER-619,4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,4,a3de791cb79873c4f9b99e7ac1b9ade75ea225ac,BOOKKEEPER-619,4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieInitializationTest.java,4,a3de791cb79873c4f9b99e7ac1b9ade75ea225ac,BOOKKEEPER-619,4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieShutdownTest.java,1,01cccee0298f3e0f9d32acc550ed94a7c9fafdfd,BOOKKEEPER-313,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerChecker.java,1,119e2034303b45478123a0fa62c1c48925b201c1,BOOKKEEPER-623,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/RackawareEnsemblePlacementPolicy.java,1,0cd4be8fde5206d956addd29cbad0391ceca1716,BOOKKEEPER-633,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestRackawareEnsemblePlacementPolicy.java,1,0cd4be8fde5206d956addd29cbad0391ceca1716,BOOKKEEPER-633,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/proto/TestPerChannelBookieClient.java,1,bf3224adf56b74e7d8c2792eec9dcdab9c49e3d3,BOOKKEEPER-620,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,4,0d9708c65998f48ba9b692ff5532251a0e1b8bc9,BOOKKEEPER-641,4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Journal.java,1,ed3bb58f5cc5cd4176573cb696bb7277c628b26a,BOOKKEEPER-636,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/JournalChannel.java,1,ed3bb58f5cc5cd4176573cb696bb7277c628b26a,BOOKKEEPER-636,1 2 3 4 5
+bookkeeper-common/src/main/java/org/apache/bookkeeper/common/util/MathUtils.java,1,ed3bb58f5cc5cd4176573cb696bb7277c628b26a,BOOKKEEPER-636,1 2 3 4 5
+hedwig-client/src/main/java/org/apache/hedwig/client/netty/impl/ActiveSubscriber.java,3,53c208b09483c90207aecf0e27e669ee810619c2,BOOKKEEPER-600,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/SyncThread.java,1,f3731732ce984f41b8530939254706f9e597583d,BOOKKEEPER-610,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/SyncThreadTest.java,1,f3731732ce984f41b8530939254706f9e597583d,BOOKKEEPER-610,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileInfo.java,4,4a7dcc330cd769b151ce449f10bc5b58ddc2675c,BOOKKEEPER-621,4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,4,4a2c740129d506f620dcfbdb5e1e852258a726d2,BOOKKEEPER-646,4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,1,61e619c2b2215fca05df3498256e3f0966a668ff,BOOKKEEPER-652,1 2 3 4 5
+hedwig-server/src/test/java/org/apache/hedwig/server/delivery/TestThrottlingDelivery.java,3,a889f63d1041a84d6b894874b31681ed35312781,BOOKKEEPER-607,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/NIOServerFactory.java,4,8923f774c55687439303e4f4c1e98823e2ba8af4,BOOKKEEPER-625,4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerCacheTest.java,1,d1ad860f8e83530e0d8f1498a35da2e9fbb85962,BOOKKEEPER-604,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieRecoveryTest.java,4,94d65d8d2e3239ad0694d3c2252fca0e3dbea8b3,BOOKKEEPER-667,4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookieWatcher.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookiesListener.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/AutoRecoveryMain.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorBookieTest.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorLedgerCheckerTest.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AutoRecoveryMainTest.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/TestReplicationWorker.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ZooKeeperUtil.java,1,c4fd34f0f13a044c0261732ff2dd454acc4b73de,BOOKKEEPER-632,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/ZkLedgerUnderreplicationManager.java,1,d8e6972385e6662ddcf398fc2de47622a9bef22d,BOOKKEEPER-649,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ZkUtils.java,1,d8e6972385e6662ddcf398fc2de47622a9bef22d,BOOKKEEPER-649,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestFencing.java,1,98d6dcec7403c523cfd07cf48ed878e1ab13eae0,BOOKKEEPER-580,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,4,07d53822b1781aa64d99009276fda3995aab8759,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,4,07d53822b1781aa64d99009276fda3995aab8759,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,4,07d53822b1781aa64d99009276fda3995aab8759,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,4,07d53822b1781aa64d99009276fda3995aab8759,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CompactionTest.java,4,07d53822b1781aa64d99009276fda3995aab8759,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BKException.java,1,e41c41102a509ed84a116e7789fc4a5c2f3c8609,BOOKKEEPER-446,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,1,e41c41102a509ed84a116e7789fc4a5c2f3c8609,BOOKKEEPER-446,1 2 3 4 5
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/LedgerCreateDeleteTest.java,1,e41c41102a509ed84a116e7789fc4a5c2f3c8609,BOOKKEEPER-446,1 2 3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDirsManager.java,3,8dafa943a1d5a1cf562d94cc6d2f656e0c0be17e,BOOKKEEPER-686,3 4 5
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,1,d9f4e60c850291d17e12ed44776b88cf02335701,BOOKKEEPER-638,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerRecoveryOp.java,1,a3575c3ebcb323a53d7a193488453aa44557c97a,BOOKKEEPER-676,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1,33ea58027b0a3ba160f7ac19d20568709f453f4d,BOOKKEEPER-673,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingAddOp.java,1,33ea58027b0a3ba160f7ac19d20568709f453f4d,BOOKKEEPER-673,1 2 3 4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerCloseTest.java,1,33ea58027b0a3ba160f7ac19d20568709f453f4d,BOOKKEEPER-673,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,4,9602c32f16184e10873d53c269e270e3cd0ebeed,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,4,9602c32f16184e10873d53c269e270e3cd0ebeed,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,4,9602c32f16184e10873d53c269e270e3cd0ebeed,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,4,9602c32f16184e10873d53c269e270e3cd0ebeed,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,4,9602c32f16184e10873d53c269e270e3cd0ebeed,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CompactionTest.java,4,9602c32f16184e10873d53c269e270e3cd0ebeed,BOOKKEEPER-664,4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieClient.java,1,f345cb9472250eca2b724fa14b8d2c08425b6a2f,BOOKKEEPER-698,1 2 3 4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieShutdownTest.java,1,67dccebdbee27476657898a370c4f1808231fc4b,BOOKKEEPER-678,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,1,5c3a30f8e423da51b1ee03173a336400335de3b8,BOOKKEEPER-709,1 2 3 4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/SlowBookieTest.java,1,5c3a30f8e423da51b1ee03173a336400335de3b8,BOOKKEEPER-709,1 2 3 4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookKeeperClusterTestCase.java,1,5c3a30f8e423da51b1ee03173a336400335de3b8,BOOKKEEPER-709,1 2 3 4 5 6
+bookkeeper-stats-providers/codahale-metrics-provider/src/main/java/org/apache/bookkeeper/stats/CodahaleMetricsProvider.java,1,23f3760dd5d79e6894616834aa41d59089c9548a,BOOKKEEPER-719,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/CheckpointSource.java,1,7b44d9552d8b854160278582db3f5ca07882358a,BOOKKEEPER-720,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1,c7a0c1c43e7beea9969b149cd796a712a0c6330d,BOOKKEEPER-673,1 2 3 4 5 6
+bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingAddOp.java,1,c7a0c1c43e7beea9969b149cd796a712a0c6330d,BOOKKEEPER-673,1 2 3 4 5 6
+bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerCloseTest.java,1,c7a0c1c43e7beea9969b149cd796a712a0c6330d,BOOKKEEPER-673,1 2 3 4 5 6

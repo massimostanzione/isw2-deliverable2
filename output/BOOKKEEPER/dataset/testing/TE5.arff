@@ -1,0 +1,180 @@
+% 1. Title: BOOKKEEPER project analysis
+% 
+% 2. Sources: 
+%    (a) Massimo Stanzione
+%    (b) BOOKKEEPER public git repository
+% 
+% 3. Relevant Information:
+%      This dataset is used in the deliverable 2 of the "Ingegneria del Software II" exam,
+%      Machine Learning module, Faculty of Engineering, University of Rome Tor Vergata.
+% 
+% 4. Number of Instances: 150
+% 
+% 5. Number of Attributes: 12
+%
+
+@RELATION	BOOKKEEPER
+
+@ATTRIBUTE	Version	NUMERIC
+@ATTRIBUTE	Name	STRING
+@ATTRIBUTE	Size	NUMERIC
+@ATTRIBUTE	NR	NUMERIC
+@ATTRIBUTE	NAuth	NUMERIC
+@ATTRIBUTE	LOC_Touched	NUMERIC
+@ATTRIBUTE	LOC_Added	NUMERIC
+@ATTRIBUTE	Max_LOC_Added	NUMERIC
+@ATTRIBUTE	Avg_LOC_Added	NUMERIC
+@ATTRIBUTE	Churn	NUMERIC
+@ATTRIBUTE	ChgSetSize	NUMERIC
+@ATTRIBUTE	Buggy	{true,false}
+
+@DATA
+5,bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchBookie.java,215,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchReadThroughputLatency.java,274,2,2,1,2,1,1.0,1,11,false
+5,bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/BenchThroughputLatency.java,461,2,2,1,2,1,1.0,1,11,false
+5,bookkeeper-benchmark/src/main/java/org/apache/bookkeeper/benchmark/MySqlClient.java,138,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-common/src/main/java/org/apache/bookkeeper/common/util/MathUtils.java,76,1,1,25,25,25,25.0,25,24,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Bookie.java,1248,8,2,182,211,132,26.375,94,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieCriticalThread.java,45,1,1,45,45,45,45.0,45,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieShell.java,1008,3,2,2,3,1,1.0,-1,12,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BookieThread.java,55,2,1,32,66,45,33.0,55,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BufferedChannel.java,204,3,2,146,101,69,33.666668,11,8,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BufferedChannelBase.java,55,1,1,55,55,55,55.0,55,8,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/BufferedReadChannel.java,103,1,1,103,103,103,103.0,103,8,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/CheckpointSource.java,83,1,1,2,1,1,1.0,0,1,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Cookie.java,262,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryKey.java,83,1,1,83,83,83,83.0,83,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/EntryLogger.java,867,4,2,350,313,273,78.25,229,8,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileInfo.java,387,3,2,112,69,62,23.0,13,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/FileSystemUpgrade.java,390,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/GarbageCollectorThread.java,637,5,2,9,147,112,29.4,58,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/HandleFactoryImpl.java,68,1,1,34,18,18,18.0,2,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/IndexInMemPageMgr.java,547,2,2,557,754,404,377.0,547,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/IndexPersistenceMgr.java,566,4,2,11,668,547,167.0,566,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/InterleavedLedgerStorage.java,314,5,2,18,62,33,12.4,54,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/Journal.java,839,4,2,3,280,273,70.0,243,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/JournalChannel.java,211,2,2,2,24,23,12.0,13,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LEPStateChangeCallback.java,31,1,1,31,31,31,31.0,31,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheImpl.java,175,2,2,10,39,39,19.5,-751,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerCacheMXBean.java,50,1,1,10,0,0,0.0,-10,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDescriptorImpl.java,87,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerDirsManager.java,373,5,2,137,123,99,24.6,76,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/LedgerEntryPage.java,224,1,1,155,108,108,108.0,61,13,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/ReadOnlyEntryLogger.java,58,1,1,2,1,1,1.0,0,12,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/bookie/SyncThread.java,189,2,2,2,7,6,3.5,-3,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeper.java,849,1,1,103,100,100,100.0,97,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperAdmin.java,877,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/BookKeeperClientStats.java,41,1,1,41,41,41,41.0,41,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerChecker.java,271,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerCreateOp.java,152,1,1,28,21,21,21.0,14,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerDeleteOp.java,90,1,1,11,11,11,11.0,11,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerEntry.java,82,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerFragmentReplicator.java,422,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerHandle.java,1059,3,2,59,55,40,18.333334,33,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerOpenOp.java,205,2,2,58,38,37,19.0,16,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/LedgerRecoveryOp.java,190,1,1,79,51,51,51.0,23,1,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/MacDigestManager.java,86,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingAddOp.java,207,3,2,14,16,12,5.3333335,12,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/PendingReadOp.java,397,2,2,39,32,31,16.0,23,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/client/ReadOnlyLedgerHandle.java,167,1,1,83,72,72,72.0,61,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ClientConfiguration.java,424,1,1,81,80,80,80.0,79,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/conf/ServerConfiguration.java,1118,6,2,22,378,153,63.0,337,8,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/AbstractZkLedgerManager.java,474,2,1,178,177,176,88.5,174,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/HierarchicalLedgerManager.java,476,1,1,23,1,1,1.0,-21,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/LedgerManager.java,204,1,1,21,21,21,21.0,21,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/meta/MSLedgerManagerFactory.java,618,2,1,11,12,11,6.0,11,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/processor/RequestProcessor.java,43,1,1,43,43,43,43.0,43,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieClient.java,310,3,1,11,44,20,14.666667,24,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieNettyServer.java,199,3,2,10,32,25,10.666667,14,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieProtoEncoding.java,194,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieRequestHandler.java,90,2,2,231,7,6,3.5,-219,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieRequestProcessor.java,335,1,1,335,335,335,335.0,335,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookieServer.java,372,4,3,8,12,7,3.0,9,10,true
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/BookkeeperInternalCallbacks.java,148,1,1,16,16,16,16.0,16,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/proto/PerChannelBookieClient.java,860,4,1,123,209,99,52.25,139,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/AutoRecoveryMain.java,275,1,1,3,2,2,2.0,1,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/BookieLedgerIndexer.java,136,1,1,2,1,1,1.0,0,11,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/replication/ReplicationWorker.java,362,2,2,5,4,3,2.0,1,10,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/streaming/LedgerInputStream.java,174,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/streaming/LedgerOutputStream.java,148,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/tools/BookKeeperTools.java,92,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/util/DaemonThreadFactory.java,39,1,1,39,39,39,39.0,39,24,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/util/DiskChecker.java,182,1,1,70,42,42,42.0,14,12,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/util/EntryFormatter.java,77,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/util/NativeIO.java,132,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/main/java/org/apache/bookkeeper/util/ZeroBuffer.java,73,1,1,73,73,73,73.0,73,13,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieInitializationTest.java,429,4,2,28,34,26,8.5,26,10,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieJournalTest.java,575,3,2,2,21,10,7.0,-10,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieShutdownTest.java,142,1,1,73,72,72,72.0,71,1,true
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/BookieThreadTest.java,84,1,1,84,84,84,84.0,84,10,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CompactionTest.java,560,8,2,2,331,169,41.375,263,8,true
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CookieTest.java,359,1,1,50,27,27,27.0,4,24,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/CreateNewLogTest.java,102,2,2,2,7,6,3.5,0,12,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/EntryLogTest.java,226,3,2,2,7,5,2.3333333,0,12,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/IndexCorruptionTest.java,153,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerCacheTest.java,458,4,2,4,15,7,3.75,2,12,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/LedgerDirsManagerTest.java,80,3,2,2,5,3,1.6666666,0,12,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/SyncThreadTest.java,352,3,1,8,13,8,4.3333335,12,10,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/bookie/UpgradeTest.java,264,3,2,2,16,12,5.3333335,-4,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookKeeperTest.java,241,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieRecoveryTest.java,991,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/BookieWriteLedgerTest.java,230,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerCloseTest.java,226,3,2,1,30,28,10.0,29,11,true
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/LedgerRecoveryTest.java,420,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/ListLedgersTest.java,111,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/RoundRobinDistributionScheduleTest.java,64,1,1,4,2,2,2.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/SlowBookieTest.java,211,4,3,2,12,8,3.0,3,10,true
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestFencing.java,397,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestLedgerChecker.java,462,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestLedgerFragmentReplication.java,340,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestReadTimeout.java,101,2,2,1,2,1,1.0,1,11,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestSpeculativeRead.java,343,2,2,1,2,1,1.0,1,11,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/client/TestWatchEnsembleChange.java,71,1,1,71,71,71,71.0,71,11,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/conf/TestBKConfiguration.java,32,1,1,32,32,32,32.0,32,1,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/meta/TestLedgerManager.java,326,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/metastore/TestMetaStore.java,648,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/proto/TestDeathwatcher.java,60,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/proto/TestPerChannelBookieClient.java,289,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorBookieTest.java,288,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorLedgerCheckerTest.java,423,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/AuditorPeriodicCheckTest.java,337,1,1,36,16,16,16.0,-4,9,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/BookieLedgerIndexTest.java,230,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/replication/TestLedgerUnderreplicationManager.java,763,1,1,5,3,3,3.0,1,24,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/AsyncLedgerOpsTest.java,258,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookKeeperClusterTestCase.java,531,2,2,2,3,2,1.5,-1,3,true
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieClientTest.java,244,2,2,2,12,11,6.0,1,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieFailureTest.java,401,1,1,4,2,2,2.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieJournalRollingTest.java,273,2,2,2,13,12,6.5,-3,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/BookieReadWriteTest.java,1074,2,2,8,8,6,4.0,4,10,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/CloseTest.java,100,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ConcurrentLedgerTest.java,186,2,2,2,5,4,2.5,1,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ConditionalSetTest.java,118,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/LedgerDeleteTest.java,170,2,1,1,2,1,1.0,1,8,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/LoopbackClient.java,120,1,1,2,1,1,1.0,0,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/MultipleThreadReadTest.java,319,1,1,319,319,319,319.0,319,10,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/ReadOnlyBookieTest.java,294,2,1,1,71,70,35.5,71,8,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/test/TestBackwardCompat.java,618,2,2,4,15,13,7.5,1,72,false
+5,bookkeeper-server/src/test/java/org/apache/bookkeeper/util/TestDiskChecker.java,111,1,1,27,21,21,21.0,15,12,false
+5,bookkeeper-stats-providers/codahale-metrics-provider/src/main/java/org/apache/bookkeeper/stats/CodahaleMetricsProvider.java,131,2,2,12,135,127,67.5,131,1,true
+5,bookkeeper-stats-providers/codahale-metrics-provider/src/main/java/org/apache/bookkeeper/stats/CodahaleOpStatsLogger.java,68,1,1,68,68,68,68.0,68,3,false
+5,bookkeeper-stats-providers/codahale-metrics-provider/src/main/java/org/apache/bookkeeper/stats/CodahaleStatsLogger.java,99,1,1,99,99,99,99.0,99,3,false
+5,bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/CounterImpl.java,53,1,1,53,53,53,53.0,53,9,false
+5,bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OpStatsLoggerImpl.java,81,1,1,81,81,81,81.0,81,9,false
+5,bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OstrichProvider.java,78,1,1,78,78,78,78.0,78,9,false
+5,bookkeeper-stats-providers/twitter-ostrich-provider/src/main/java/org/apache/bookkeeper/stats/twitter/ostrich/OstrichStatsLoggerImpl.java,69,1,1,69,69,69,69.0,69,9,false
+5,bookkeeper-stats-providers/twitter-science-provider/src/main/java/org/apache/bookkeeper/stats/twitter/science/CounterImpl.java,69,1,1,69,69,69,69.0,69,9,false
+5,bookkeeper-stats-providers/twitter-science-provider/src/main/java/org/apache/bookkeeper/stats/twitter/science/HTTPStatsExporter.java,77,1,1,77,77,77,77.0,77,9,false
+5,bookkeeper-stats-providers/twitter-science-provider/src/main/java/org/apache/bookkeeper/stats/twitter/science/OpStatsLoggerImpl.java,72,1,1,72,72,72,72.0,72,9,false
+5,bookkeeper-stats-providers/twitter-science-provider/src/main/java/org/apache/bookkeeper/stats/twitter/science/TwitterStatsLoggerImpl.java,72,1,1,72,72,72,72.0,72,9,false
+5,bookkeeper-stats-providers/twitter-science-provider/src/main/java/org/apache/bookkeeper/stats/twitter/science/TwitterStatsProvider.java,63,1,1,63,63,63,63.0,63,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/Counter.java,50,1,1,50,50,50,50.0,50,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/Gauge.java,28,1,1,28,28,28,28.0,28,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/NullStatsLogger.java,96,1,1,96,96,96,96.0,96,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/NullStatsProvider.java,40,1,1,40,40,40,40.0,40,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/OpStatsData.java,76,1,1,76,76,76,76.0,76,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/OpStatsLogger.java,49,1,1,49,49,49,49.0,49,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/Stats.java,63,1,1,63,63,63,63.0,63,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/StatsLogger.java,55,1,1,55,55,55,55.0,55,9,false
+5,bookkeeper-stats/src/main/java/org/apache/bookkeeper/stats/StatsProvider.java,45,1,1,45,45,45,45.0,45,9,false
+5,hedwig-server/src/test/java/org/apache/hedwig/server/persistence/TestBookKeeperPersistenceManager.java,802,1,1,1,1,1,1.0,1,11,false
+5,hedwig-server/src/test/java/org/apache/hedwig/server/persistence/TestDeadlock.java,277,1,1,1,1,1,1.0,1,11,false

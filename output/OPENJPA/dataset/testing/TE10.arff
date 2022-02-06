@@ -1,0 +1,234 @@
+% 1. Title: OPENJPA project analysis
+% 
+% 2. Sources: 
+%    (a) Massimo Stanzione
+%    (b) OPENJPA public git repository
+% 
+% 3. Relevant Information:
+%      This dataset is used in the deliverable 2 of the "Ingegneria del Software II" exam,
+%      Machine Learning module, Faculty of Engineering, University of Rome Tor Vergata.
+% 
+% 4. Number of Instances: 204
+% 
+% 5. Number of Attributes: 12
+% 
+
+@RELATION	OPENJPA
+
+@ATTRIBUTE	Version	NUMERIC
+@ATTRIBUTE	Name	STRING
+@ATTRIBUTE	Size	NUMERIC
+@ATTRIBUTE	NR	NUMERIC
+@ATTRIBUTE	NAuth	NUMERIC
+@ATTRIBUTE	LOC_Touched	NUMERIC
+@ATTRIBUTE	LOC_Added	NUMERIC
+@ATTRIBUTE	Max_LOC_Added	NUMERIC
+@ATTRIBUTE	Avg_LOC_Added	NUMERIC
+@ATTRIBUTE	Churn	NUMERIC
+@ATTRIBUTE	ChgSetSize	NUMERIC
+@ATTRIBUTE	Buggy	{true,false}
+
+@DATA
+10,contrib/devtools/openjpa-eclipse-testproject/src/test/NotToEnhance.java,7,1,1,12,12,12,12.0,12,28,false
+10,contrib/devtools/openjpa-eclipse-testproject/src/test/SomeEntity.java,7,1,1,8,8,8,8.0,8,28,false
+10,contrib/devtools/openjpa-eclipse-testproject/src/test/test/SomeEntityTest.java,7,1,1,15,15,15,15.0,15,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse.tests/src/test/java/org/apache/openjpa/eclipse/EnhancerBuilderTest.java,7,1,1,150,150,150,150.0,150,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse.tests/src/test/java/org/apache/openjpa/eclipse/util/ClasspathHelperTest.java,7,1,1,110,110,110,110.0,110,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse.tests/src/test/java/org/apache/openjpa/eclipse/util/PCEnhancerHelperTest.java,7,1,1,77,77,77,77.0,77,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse.tests/src/test/java/org/apache/openjpa/eclipse/util/PathMatcherUtilTest.java,7,1,1,53,53,53,53.0,53,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse.tests/src/test/notonclasspath/org/apache/openjpa/eclipse/NotToEnhance.java,7,1,1,12,12,12,12.0,12,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse.tests/src/test/notonclasspath/org/apache/openjpa/eclipse/TestEntity.java,7,1,1,22,22,22,22.0,22,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/Activator.java,7,1,1,80,80,80,80.0,80,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/BuilderOptions.java,7,1,1,31,31,31,31.0,31,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/OpenJPAEnhancerBuilder.java,7,1,1,295,295,295,295.0,295,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/OpenJPANature.java,7,1,1,102,102,102,102.0,102,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/PluginLibrary.java,7,1,1,269,269,269,269.0,269,13,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/PluginProperty.java,7,1,1,65,65,65,65.0,65,13,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/ToggleNatureAction.java,7,1,1,119,119,119,119.0,119,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/ui/AbstractDialog.java,7,1,1,105,105,105,105.0,105,13,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/ui/AddNatureDialog.java,7,1,1,187,187,187,187.0,187,13,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/ui/ProjectDecorator.java,7,1,1,79,79,79,79.0,79,13,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/ui/RemoveNatureDialog.java,7,1,1,79,79,79,79.0,79,13,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/ClassLoaderFromIProjectHelper.java,7,1,1,60,60,60,60.0,60,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/EclipseLogFactory.java,7,1,1,59,59,59,59.0,59,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/LogUtil.java,7,1,1,62,62,62,62.0,62,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/PCEnhancerHelper.java,7,1,1,33,33,33,33.0,33,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/PCEnhancerHelperClassLoadingWrapper.java,7,1,1,91,91,91,91.0,91,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/PCEnhancerHelperImpl.java,7,1,1,114,114,114,114.0,114,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/PathMatcherUtil.java,7,1,1,59,59,59,59.0,59,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/AntPathMatcher.java,7,1,1,419,419,419,419.0,419,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/AntPathStringMatcher.java,7,1,1,119,119,119,119.0,119,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/Assert.java,7,1,1,402,402,402,402.0,402,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/CollectionUtils.java,7,1,1,310,310,310,310.0,310,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/ObjectUtils.java,7,1,1,847,847,847,847.0,847,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/PathMatcher.java,7,1,1,127,127,127,127.0,127,28,false
+10,contrib/devtools/org.apache.openjpa.eclipse/src/main/java/org/apache/openjpa/eclipse/util/pathmatch/StringUtils.java,7,1,1,1117,1117,1117,1117.0,1117,28,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/ColumnDefIdentifierRule.java,7,1,1,39,39,39,39.0,39,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/DBIdentifier.java,7,1,1,911,911,911,911.0,911,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/DBIdentifierRule.java,7,1,1,56,56,56,56.0,56,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/DBIdentifierUtil.java,7,1,1,213,213,213,213.0,213,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/DBIdentifierUtilImpl.java,7,1,1,478,478,478,478.0,478,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/DefaultIdentifierConfiguration.java,7,1,1,81,81,81,81.0,81,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/Normalizer.java,7,1,1,311,311,311,311.0,311,147,false
+10,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/identifier/QualifiedDBIdentifier.java,7,1,1,359,359,359,359.0,359,147,false
+10,openjpa-jdbc/src/test/java/org/apache/openjpa/jdbc/sql/identifier/TestDBIdentifiers.java,7,1,1,275,275,275,275.0,275,147,false
+10,openjpa-kernel/src/main/java/org/apache/openjpa/datacache/CacheDistributionPolicy.java,7,1,1,38,38,38,38.0,38,16,false
+10,openjpa-kernel/src/main/java/org/apache/openjpa/datacache/PartitionedDataCache.java,7,1,1,179,179,179,179.0,179,16,false
+10,openjpa-kernel/src/main/java/org/apache/openjpa/kernel/DistinctResultList.java,7,1,1,207,207,207,207.0,207,11,true
+10,openjpa-kernel/src/main/java/org/apache/openjpa/kernel/LockScopes.java,7,1,1,39,39,39,39.0,39,32,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/identifier/Identifier.java,7,1,1,29,29,29,29.0,29,10,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/identifier/IdentifierConfiguration.java,7,1,1,89,89,89,89.0,89,10,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/identifier/IdentifierImpl.java,7,1,1,72,72,72,72.0,72,10,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/identifier/IdentifierRule.java,7,1,1,209,209,209,209.0,209,10,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/identifier/IdentifierUtil.java,7,1,1,319,319,319,319.0,319,10,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/identifier/IdentifierUtilImpl.java,7,1,1,548,548,548,548.0,548,10,false
+10,openjpa-lib/src/main/java/org/apache/openjpa/lib/util/OrderedMap.java,7,1,1,120,120,120,120.0,120,12,false
+10,openjpa-lib/src/test/java/org/apache/openjpa/lib/identifier/DefaultTestIdRule.java,7,1,1,25,25,25,25.0,25,10,false
+10,openjpa-lib/src/test/java/org/apache/openjpa/lib/identifier/IdConfigurationTestImpl.java,7,1,1,87,87,87,87.0,87,10,false
+10,openjpa-lib/src/test/java/org/apache/openjpa/lib/identifier/NewIdConfigurationTestImpl.java,7,1,1,87,87,87,87.0,87,10,false
+10,openjpa-lib/src/test/java/org/apache/openjpa/lib/identifier/TestIdentifiers.java,7,1,1,58,58,58,58.0,58,10,false
+10,openjpa-osgi/src/main/java/org/apache/openjpa/osgi/PersistenceActivator.java,7,1,1,58,58,58,58.0,58,1,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/jdbc/writebehind/crud/TestEmbeddable.java,7,1,1,251,251,251,251.0,251,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/jdbc/writebehind/entities/Embeddable01.java,7,1,1,70,70,70,70.0,70,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/jdbc/writebehind/entities/Entity01.java,7,1,1,155,155,155,155.0,155,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/jdbc/writebehind/entities/Entity02.java,7,1,1,119,119,119,119.0,119,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/TestMixedMappingLocation.java,7,1,1,50,50,50,50.0,50,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/annotations/PColl_EntityStringEager.java,7,1,1,53,53,53,53.0,53,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/annotations/PColl_EntityStringLazy.java,7,1,1,53,53,53,53.0,53,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/compat/TestContainerSpecCompatibilityOptions.java,7,1,1,906,906,906,906.0,906,3,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/criteria/TestDistinctCriteria.java,7,1,1,91,91,91,91.0,91,11,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/TestDataCacheObjectId.java,4,1,1,712,712,712,712.0,712,2,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/TestPartionedDataCache.java,7,1,1,92,92,92,92.0,92,16,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/Car.java,7,1,1,105,105,105,105.0,105,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/Car2.java,7,1,1,99,99,99,99.0,99,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/Chevrolet.java,7,1,1,32,32,32,32.0,32,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/Chevrolet2.java,7,1,1,32,32,32,32.0,32,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityA.java,7,1,1,175,175,175,175.0,175,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityB.java,7,1,1,70,70,70,70.0,70,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityH.java,7,1,1,183,183,183,183.0,183,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityI.java,7,1,1,89,89,89,89.0,89,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityI2.java,7,1,1,87,87,87,87.0,87,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityI3.java,7,1,1,65,65,65,65.0,65,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/EntityI4.java,7,1,1,65,65,65,65.0,65,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/Pontiac.java,7,1,1,32,32,32,32.0,32,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/Pontiac2.java,7,1,1,32,32,32,32.0,32,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/TestDelimIdResultSetAnnotations.java,7,1,1,124,124,124,124.0,124,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/TestDelimIdSeqGen.java,7,1,1,84,84,84,84.0,84,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/TestDelimInheritance.java,7,1,1,113,113,113,113.0,113,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/TestDelimitedIdentifiers.java,7,1,1,79,79,79,79.0,79,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/TestDelimitedJoinAnnotation.java,7,1,1,162,162,162,162.0,162,35,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/Car.java,7,1,1,90,90,90,90.0,90,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/Car2.java,7,1,1,99,99,99,99.0,99,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/Chevrolet.java,7,1,1,28,28,28,28.0,28,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/Chevrolet2.java,7,1,1,32,32,32,32.0,32,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityA.java,7,1,1,111,111,111,111.0,111,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityB.java,7,1,1,54,54,54,54.0,54,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityH.java,7,1,1,152,152,152,152.0,152,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityI.java,7,1,1,80,80,80,80.0,80,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityI2.java,7,1,1,74,74,74,74.0,74,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityI3.java,7,1,1,56,56,56,56.0,56,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/EntityI4.java,7,1,1,56,56,56,56.0,56,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/Pontiac.java,7,1,1,27,27,27,27.0,27,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/Pontiac2.java,7,1,1,32,32,32,32.0,32,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/TestXmlDelimIdResultSets.java,7,1,1,124,124,124,124.0,124,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/TestXmlDelimIdSeqGen.java,7,1,1,82,82,82,82.0,82,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/TestXmlDelimInheritance.java,7,1,1,113,113,113,113.0,113,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/TestXmlDelimitedIdentifiers.java,7,1,1,74,74,74,74.0,74,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/delimited/identifiers/xml/TestXmlDelimitedJoinAnnotation.java,7,1,1,161,161,161,161.0,161,147,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EBigDecimalID.java,7,1,1,56,56,56,56.0,56,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EBigIntegerID.java,7,1,1,55,55,55,55.0,55,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EDBigDecimalID.java,7,1,1,55,55,55,55.0,55,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EDBigIntegerID.java,7,1,1,55,55,55,55.0,55,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EDDateID.java,7,1,1,55,55,55,55.0,55,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EDSQLDateID.java,7,1,1,55,55,55,55.0,55,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/EDateID.java,7,1,1,54,54,54,54.0,54,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/ESQLDateID.java,7,1,1,53,53,53,53.0,53,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/derivedid/TestDerivedIdentity.java,7,1,1,123,123,123,123.0,123,10,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detach/IntVersionEntity.java,7,1,1,79,79,79,79.0,79,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detach/NoVersionEntity.java,7,1,1,54,54,54,54.0,54,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detach/TestDetachReloadProp.java,7,1,1,95,95,95,95.0,95,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detach/TimestampVersionEntity.java,7,1,1,63,63,63,63.0,63,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detachment/TestDetachNoStateField.java,7,1,1,88,88,88,88.0,88,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detachment/model/NoDetachedStateEntityFieldAccess.java,7,1,1,57,57,57,57.0,57,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/detachment/model/NoDetachedStateEntityPropertyAccess.java,7,1,1,63,63,63,63.0,63,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/embed/A.java,7,1,1,72,72,72,72.0,72,7,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Dependent1Xml.java,7,1,1,62,62,62,62.0,62,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Dependent5.java,7,1,1,49,49,49,49.0,49,6,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/DependentId1Xml.java,7,1,1,65,65,65,65.0,65,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/DependentId5.java,7,1,1,60,60,60,60.0,60,6,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Employee1Xml.java,7,1,1,86,86,86,86.0,86,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Employee5.java,7,1,1,40,40,40,40.0,40,6,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/EmployeeId5.java,7,1,1,70,70,70,70.0,70,6,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Line1.java,7,1,1,82,82,82,82.0,82,15,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/LineId1.java,7,1,1,95,95,95,95.0,95,15,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/TestMapsIdXml.java,7,1,1,130,130,130,130.0,130,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/entity/MixedMappingLocation.java,7,1,1,33,33,33,33.0,33,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/entity/MixedMappingLocationEmbeddedId.java,7,1,1,53,53,53,53.0,53,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/event/PostRemoveCallbackEntity.java,7,1,1,70,70,70,70.0,70,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/event/TestPostRemove.java,7,1,1,136,136,136,136.0,136,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/ComplexCompoundIdTestEntity.java,7,1,1,58,58,58,58.0,58,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/ComplexCompoundIdTestEntityId.java,7,1,1,63,63,63,63.0,63,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/SimpleCompoundIdTestEntity.java,7,1,1,56,56,56,56.0,56,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/SimpleCompoundIdTestEntityId.java,7,1,1,64,64,64,64.0,64,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/TestCompundIdWithNull.java,7,1,1,121,121,121,121.0,121,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/TypeEntity.java,7,1,1,22,22,22,22.0,22,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/entityasidentity/Account.java,7,1,1,104,104,104,104.0,104,7,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/entityasidentity/AccountGroup.java,7,1,1,60,60,60,60.0,60,7,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/entityasidentity/AccountId.java,7,1,1,84,84,84,84.0,84,7,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/entityasidentity/Person.java,7,1,1,61,61,61,61.0,61,7,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/identity/entityasidentity/TestEntityAsIdentityFields.java,7,1,1,257,257,257,257.0,257,7,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/jointable/Contractor.java,7,1,1,81,81,81,81.0,81,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/jointable/Department.java,7,1,1,92,92,92,92.0,92,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/jointable/Employee.java,7,1,1,47,47,47,47.0,47,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/jointable/Person.java,7,1,1,64,64,64,64.0,64,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/jointable/TestInheritanceTypeJoinedQuery.java,7,1,1,159,159,159,159.0,159,6,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/kernel/TestUpdateWithSubSelect.java,7,1,1,70,70,70,70.0,70,2,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/kernel/TestIndirectRecursion.java,7,1,1,198,198,198,198.0,198,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/kernel/common/apps/State.java,7,1,1,95,95,95,95.0,95,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/kernel/common/apps/Transition.java,7,1,1,86,86,86,86.0,86,5,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/merge/TestCascadeOneToManyMerge.java,6,1,1,150,150,150,150.0,150,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/merge/model/Toy.java,6,1,1,75,75,75,75.0,75,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/merge/model/ToyBox.java,6,1,1,81,81,81,81.0,81,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/meta/MdrTestEntity.java,7,1,1,42,42,42,42.0,42,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/meta/TestMetaDataRepository.java,7,1,1,69,69,69,69.0,69,4,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/meta/TestQueryTypeAliasRegistration.java,7,1,1,106,106,106,106.0,106,1,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/meta/UnloadedEntity.java,6,1,1,70,70,70,70.0,70,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/TestQueryLock.java,7,1,1,139,139,139,139.0,139,3,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/TestQueryResultClassAPI.java,7,1,1,92,92,92,92.0,92,2,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/TestWildCardCount.java,7,1,1,93,93,93,93.0,93,2,false
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/relations/TestOneToManyWithEagerLazyFetch.java,7,1,1,104,104,104,104.0,104,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/relations/Util1xmLf.java,7,1,1,90,90,90,90.0,90,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/relations/Util1xmRt.java,7,1,1,55,55,55,55.0,55,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/subquery/Person.java,6,1,1,74,74,74,74.0,74,4,true
+10,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/test/ContainerEMFTest.java,7,1,1,145,145,145,145.0,145,3,true
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1x1Lf.java,7,1,1,113,113,113,113.0,113,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1x1LfJT.java,7,1,1,115,115,115,115.0,115,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1x1LfJTLzy.java,7,1,1,116,116,116,116.0,116,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1x1LfLzy.java,7,1,1,114,114,114,114.0,114,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1x1Rt.java,7,1,1,79,79,79,79.0,79,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1xmLf.java,7,1,1,118,118,118,118.0,118,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1xmLfEgr.java,7,1,1,119,119,119,119.0,119,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1xmLfJT.java,7,1,1,120,120,120,120.0,120,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1xmLfJTEgr.java,7,1,1,119,119,119,119.0,119,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSE1xmRt.java,7,1,1,79,79,79,79.0,79,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSEBase.java,7,1,1,110,110,110,110.0,110,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSEEleCol.java,7,1,1,118,118,118,118.0,118,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSEEleColEgr.java,7,1,1,119,119,119,119.0,119,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSEJoinAbs.java,7,1,1,81,81,81,81.0,81,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSEJoinCon.java,7,1,1,76,76,76,76.0,76,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSESecTbl.java,7,1,1,112,112,112,112.0,112,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSESngTblAbs.java,7,1,1,100,100,100,100.0,100,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LSESngTblCon.java,7,1,1,76,76,76,76.0,76,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/LockScopeTestCase.java,7,1,1,324,324,324,324.0,324,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/Test1x1LockScope.java,7,1,1,937,937,937,937.0,937,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/Test1xmLockScope.java,7,1,1,1126,1126,1126,1126.0,1126,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lock/extended/TestBasicLockScope.java,7,1,1,1225,1225,1225,1225.0,1225,32,false
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lockmgr/Department.java,7,1,1,79,79,79,79.0,79,4,true
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lockmgr/Employee.java,7,1,1,94,94,94,94.0,94,4,true
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lockmgr/TestMixedLockManagerDeadlock.java,7,1,1,133,133,133,133.0,133,8,true
+10,openjpa-persistence-locking/src/test/java/org/apache/openjpa/persistence/lockmgr/TestPessimisticLocks.java,7,1,1,242,242,242,242.0,242,4,true
+10,openjpa-persistence/src/main/java/org/apache/openjpa/persistence/HintValueConverter.java,7,1,1,189,189,189,189.0,189,11,false
+10,openjpa-persistence/src/main/java/org/apache/openjpa/persistence/JPAProperties.java,7,1,1,129,129,129,129.0,129,25,false
+10,openjpa-persistence/src/main/java/org/apache/openjpa/persistence/LockScopesHelper.java,7,1,1,49,49,49,49.0,49,32,false
+10,openjpa-persistence/src/main/java/org/apache/openjpa/persistence/OpenJPAEnum.java,7,1,1,53,53,53,53.0,53,13,false
+10,openjpa-persistence/src/main/java/org/apache/openjpa/persistence/criteria/CriteriaBuilderImpl.java,7,1,1,68,37,37,37.0,6,16,false

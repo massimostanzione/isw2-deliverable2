@@ -1,0 +1,88 @@
+% 1. Title: OPENJPA project analysis
+% 
+% 2. Sources: 
+%    (a) Massimo Stanzione
+%    (b) OPENJPA public git repository
+% 
+% 3. Relevant Information:
+%      This dataset is used in the deliverable 2 of the "Ingegneria del Software II" exam,
+%      Machine Learning module, Faculty of Engineering, University of Rome Tor Vergata.
+% 
+% 4. Number of Instances: 58
+% 
+% 5. Number of Attributes: 12
+% 
+
+@RELATION	OPENJPA
+
+@ATTRIBUTE	Version	NUMERIC
+@ATTRIBUTE	Name	STRING
+@ATTRIBUTE	Size	NUMERIC
+@ATTRIBUTE	NR	NUMERIC
+@ATTRIBUTE	NAuth	NUMERIC
+@ATTRIBUTE	LOC_Touched	NUMERIC
+@ATTRIBUTE	LOC_Added	NUMERIC
+@ATTRIBUTE	Max_LOC_Added	NUMERIC
+@ATTRIBUTE	Avg_LOC_Added	NUMERIC
+@ATTRIBUTE	Churn	NUMERIC
+@ATTRIBUTE	ChgSetSize	NUMERIC
+@ATTRIBUTE	Buggy	{true,false}
+
+@DATA
+6,openjpa-jdbc/src/main/java/org/apache/openjpa/jdbc/sql/SQLErrorCodeReader.java,4,1,1,136,136,136,136.0,136,9,true
+6,openjpa-jdbc/src/test/java/org/apache/openjpa/jdbc/kernel/TestUpdateManagerFlushException.java,4,1,1,882,882,882,882.0,882,2,true
+6,openjpa-kernel/src/main/java/org/apache/openjpa/kernel/UUIDType4HexSeq.java,4,1,1,66,66,66,66.0,66,15,false
+6,openjpa-kernel/src/main/java/org/apache/openjpa/kernel/UUIDType4StringSeq.java,4,1,1,66,66,66,66.0,66,15,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/conf/TestBadJdbcUrl.java,4,1,1,198,198,198,198.0,198,3,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/enhance/TestSimpleUnenhancedQuery.java,4,1,1,49,49,49,49.0,49,3,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/enhance/UnenhancedPObject.java,4,1,1,25,25,25,25.0,25,3,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/jdbc/kernel/EntityF.java,4,1,1,43,43,43,43.0,43,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/jdbc/kernel/EntityG.java,4,1,1,49,49,49,49.0,49,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/cache/common/apps/BidirectionalOne2OneOwned.java,4,1,1,89,89,89,89.0,89,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/cache/common/apps/BidirectionalOne2OneOwner.java,4,1,1,86,86,86,86.0,86,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/cache/common/apps/UnidirectionalOne2OneOwned.java,4,1,1,77,77,77,77.0,77,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/cache/common/apps/UnidirectionalOne2OneOwner.java,4,1,1,87,87,87,87.0,87,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/TestDataCacheBehavesIdentical.java,4,1,1,444,444,444,444.0,444,5,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/TestEmbeddedCollection.java,4,1,1,123,123,123,123.0,123,4,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/common/apps/EmbeddedEntity.java,4,1,1,46,46,46,46.0,46,4,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/common/apps/EmbeddingOwnerEntity.java,4,1,1,73,73,73,73.0,73,4,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/datacache/common/apps/PObject.java,4,1,1,57,57,57,57.0,57,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Book.java,1,1,1,118,118,118,118.0,118,11,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/BookId.java,1,1,1,80,80,80,80.0,80,11,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Library.java,1,1,1,107,107,107,107.0,107,11,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/Page.java,1,1,1,76,76,76,76.0,76,11,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/PageId.java,1,1,1,76,76,76,76.0,76,11,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/enhance/identity/TestMultipleLevelDerivedIdentity.java,1,1,1,184,184,184,184.0,184,11,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/generationtype/DogTable3.java,4,1,1,87,87,87,87.0,87,4,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/generationtype/DogTable4.java,4,1,1,87,87,87,87.0,87,4,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/BaseEntity.java,4,1,1,55,55,55,55.0,55,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/EnglishParagraph.java,4,1,1,45,45,45,45.0,45,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/FrenchParagraph.java,4,1,1,45,45,45,45.0,45,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/GermanParagraph.java,4,1,1,45,45,45,45.0,45,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/TestTablePerClassInheritanceWithAbstractRoot.java,4,1,1,155,155,155,155.0,155,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/Translatable.java,4,1,1,57,57,57,57.0,57,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/inheritance/polymorphic/Translation.java,4,1,1,51,51,51,51.0,51,8,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/SQLSniffer.java,4,1,1,66,66,66,66.0,66,10,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/common/apps/UnidirectionalOneToOneOwned.java,4,1,1,61,61,61,61.0,61,3,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/common/apps/UnidirectionalOneToOneOwner.java,4,1,1,74,74,74,74.0,74,3,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/TestNativeQueryParameterBinding.java,4,1,1,86,86,86,86.0,86,2,false
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/TestUpdateSingleValuedAssociation.java,4,1,1,137,137,137,137.0,137,6,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/Department.java,1,1,1,83,83,83,83.0,83,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/DepartmentId.java,1,1,1,56,56,56,56.0,56,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/Employee.java,1,1,1,59,59,59,59.0,59,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/EmployeeId.java,1,1,1,56,56,56,56.0,56,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/FullTimeEmployee.java,1,1,1,38,38,38,38.0,38,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/PartTimeEmployee.java,1,1,1,38,38,38,38.0,38,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/cache/TestNonPrimaryKeyQueryParameters.java,1,1,1,157,157,157,157.0,157,9,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/domain/Applicant.java,4,1,1,50,50,50,50.0,50,6,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/query/domain/Application.java,4,1,1,55,55,55,55.0,55,6,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/unique/TestUnique.java,4,1,1,78,78,78,78.0,78,15,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/unique/TestUniqueConstraint.java,4,1,1,79,79,79,79.0,79,10,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/unique/TestUniqueConstraintWithXMLDescriptor.java,4,1,1,86,86,86,86.0,86,10,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/unique/UniqueA.java,4,1,1,77,77,77,77.0,77,15,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/jdbc/unique/UniqueB.java,4,1,1,38,38,38,38.0,38,15,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/Customer.java,4,1,1,120,120,120,120.0,120,5,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/Order.java,4,1,1,87,87,87,87.0,87,5,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/OrderItem.java,4,1,1,76,76,76,76.0,76,5,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/TestProjectionQueryWithIdenticalResult.java,4,1,1,109,109,109,109.0,109,3,true
+6,openjpa-persistence-jdbc/src/test/java/org/apache/openjpa/persistence/query/TestSubquery.java,4,1,1,98,98,98,98.0,98,5,true
