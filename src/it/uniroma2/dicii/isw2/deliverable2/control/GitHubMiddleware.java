@@ -159,14 +159,16 @@ public class GitHubMiddleware {
     public static String findGitHubHashID(String name, GitWorkingCopy wc) {
         List<Ref> versionTags = wc.getVersionTags();
         for (Ref tag : versionTags) {
-            if (tag.toString().contains(name)) {
-                ObjectId objId = new ObjectId(0,0,0,0,0);
-                try {
-                    objId = tag.getObjectId();
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
+            if (tag != null) {
+                if (tag.toString().contains(name)) {
+                    ObjectId objId = new ObjectId(0, 0, 0, 0, 0);
+                    try {
+                        objId = tag.getObjectId();
+                    } catch (NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                    return objId.getName();
                 }
-                return objId.getName();
             }
         }
         return null;

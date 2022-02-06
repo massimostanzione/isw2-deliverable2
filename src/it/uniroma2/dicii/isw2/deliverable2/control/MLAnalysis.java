@@ -123,7 +123,8 @@ public class MLAnalysis {
                             try {
                                 str = Files.lines(trainPath);
                             } finally {
-                                str.close();
+                                if (str != null)
+                                    str.close();
                             }
                             List<String> listDS = Files.readAllLines(datasetPath);
                             trainPrc = ((double) 100 * str.count() - 1) / (listDS.size() - 1);
