@@ -110,8 +110,7 @@ public class BugLifecycleFixer {
      * @throws VersionException
      */
     public static BugLifecycle computeBugLifecycle(Double proportionAvgNum, Integer n, List<Version> jiraVersions, Ticket iteratedTicket,
-                                                   List<Version> versionList, LabelingMethod avPredMethod)
-            throws VersionException {
+                                                   List<Version> versionList, LabelingMethod avPredMethod) throws VersionException {
         BugLifecycle bl = new BugLifecycle();
         Version iv = null;
         Version ov = null;
@@ -130,9 +129,9 @@ public class BugLifecycleFixer {
             // Ticket was created and solved in the same version.
             // It does not imply that IV does not exists, it can be previous indeed.
             // So, set it as the "current" version, in such a way that:
-            // - it is FV-1;
-            // - it still is AV;
-            // - it is the nearest to the ticket opening.
+            // (i)      it is FV-1;
+            // (ii)     it still is AV;
+            // (iii)    it is the nearest to the ticket opening.
             ov = VersionHandler.getCurrentVersionByDate(iteratedTicket.getCreationTimestamp(), versionList);
         }
         bl.setOV(ov);
@@ -145,40 +144,7 @@ public class BugLifecycleFixer {
             av.addAll(jiraVersions);
             bl.setAVs(av);
             bl.setJIRACheck(BugLifecycleFixer.checkConsistency(bl));
-            Boolean needsPrediction = false;
-            for (Integer i = 0; i < bl.getJIRACheck().size(); i++) {
-                JIRAAffectedVersionsCheck error = bl.getJIRACheck().get(i);
-                switch (error) {
-                    case OK:
-                        // Best case: lifecycle is consistent, not even needs a prediction.
-                        return bl;
-                    case AVS_NOT_CONSISTENT:
-                    case AV_AFTER_FV:
-                        bl = BugLifecycleFixer.fillSimpleLikeAVs(bl, versionList);
-                        break;
-                    case FV_AS_AV:
-                        bl = BugLifecycleFixer.removeFVfromAVs(bl);
-                        break;
-                    case IV_AFTER_OV:
-                        // Worst case: it is not possible, in any way, to obtain information from JIRA.
-                        bl.setAVs(null);
-                        needsPrediction = true;
-                        break;
-                    case NOT_REPORTED:
-                        // Even worse: if the version has not been reported,
-                        // the bug must have been already discarded.
-                        throw new VersionException("Bug with no version reported, but not discarded.");
-                    default:
-                        throw new RuntimeException("Non-trivial problem with JIRA analysis occurred.");
-                }
-                if (Boolean.TRUE.equals(needsPrediction)) {
-                    bl.setIVPredictionNeeded(true);
-                    bl.setProportionContribute(0);
-                    break;
-                }
-            }
-            if (Boolean.FALSE.equals(needsPrediction))
-                bl.setIVPredictionNeeded(false);
+            bl = correctJIRAErrors(bl, versionList);
             if (fv.getSortedID() > ov.getSortedID() && ov.getSortedID() > iv.getSortedID()) {
                 bl.setProportionContribute((float) (fv.getSortedID() - iv.getSortedID()) / (fv.getSortedID() - ov.getSortedID()));
                 return bl;
@@ -195,10 +161,12 @@ public class BugLifecycleFixer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        iv = bl.getIV();
-        ov = bl.getOV();
-        av = bl.getAVs();
-        fv = bl.getFV();
+        if (bl != null) {
+            iv = bl.getIV();
+            ov = bl.getOV();
+            av = bl.getAVs();
+            fv = bl.getFV();
+        }
         // (4) Final coherence check
         if (fv.getSortedID() < iv.getSortedID() || ov.getSortedID() < iv.getSortedID()) {
             //Discard bug: (b)
@@ -209,8 +177,48 @@ public class BugLifecycleFixer {
         return bl;
     }
 
+    private static BugLifecycle correctJIRAErrors(BugLifecycle bl, List<Version> versionList) throws VersionException {
+        Boolean needsPrediction = false;
+        for (Integer i = 0; i < bl.getJIRACheck().size(); i++) {
+            JIRAAffectedVersionsCheck error = bl.getJIRACheck().get(i);
+            needsPrediction = false;
+            switch (error) {
+                case OK:
+                    // Best case: lifecycle is consistent, not even needs a prediction.
+                    return bl;
+                case AVS_NOT_CONSISTENT:
+                case AV_AFTER_FV:
+                    bl = BugLifecycleFixer.fillSimpleLikeAVs(bl, versionList);
+                    break;
+                case FV_AS_AV:
+                    bl = BugLifecycleFixer.removeFVfromAVs(bl);
+                    break;
+                case IV_AFTER_OV:
+                    // Worst case: it is not possible, in any way, to obtain information from JIRA.
+                    bl.setAVs(null);
+                    needsPrediction = true;
+                    break;
+                case NOT_REPORTED:
+                    // Even worse: if the version has not been reported,
+                    // the bug must have been already discarded.
+                    throw new VersionException("Bug with no version reported, but not discarded.");
+                default:
+                    throw new VersionException("Non-trivial problem with JIRA analysis occurred.");
+            }
+            if (Boolean.TRUE.equals(needsPrediction)) {
+                bl.setIVPredictionNeeded(true);
+                bl.setProportionContribute(0);
+                break;
+            } else {
+                bl.setIVPredictionNeeded(false);
+                break;
+            }
+        }
+        return bl;
+    }
+
     private static BugLifecycle predict(BugLifecycle bl, LabelingMethod avPredMethod, List<Version> versionList,
-                                        double proportionAvgNum, double n) throws Exception {
+                                        double proportionAvgNum, double n) throws VersionException {
         Version iv = bl.getIV();
         Version ov = bl.getOV();
         Version fv = bl.getFV();
@@ -234,7 +242,7 @@ public class BugLifecycleFixer {
                 av = VersionHandler.getVersionsBetween(iv, fv, versionList);
                 break;
             default:
-                throw new RuntimeException("Not valid labeling method for " + avPredMethod);
+                throw new VersionException("Not valid labeling method for " + avPredMethod);
         }
         bl.setIV(iv);
         bl.setOV(ov);

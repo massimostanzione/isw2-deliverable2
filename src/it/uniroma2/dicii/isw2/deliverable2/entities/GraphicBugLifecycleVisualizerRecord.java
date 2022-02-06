@@ -50,7 +50,7 @@ public class GraphicBugLifecycleVisualizerRecord extends ExportableAsDatasetReco
         StringBuilder sb = new StringBuilder();
         for (Integer i = 0; i < this.jiraCheck.size(); i++) {
             String error = this.jiraCheck.get(i).toString();
-            sb.append(i == this.jiraCheck.size() - 1 ? error : error).append("*");
+            sb.append(i == this.jiraCheck.size() - 1 ? error : error + "*");
         }
         return sb.toString();
     }

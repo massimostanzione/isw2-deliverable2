@@ -28,6 +28,6 @@ public class AvgLocAdded extends Metric {
     public Float compute(Measure m, MeasuredClass mc, Version v, Integer touchedFiles, ObjectLoader loader, DiffFormatter df,
                          DiffEntry diff, Integer addedLOCs, Integer removedLOCs, String author)
             throws IOException {
-        return m.getLoc_added().getValue() / m.getNr().getValue();
+        return m.getLocAdded().getValue() / m.getNr().getValue();
     }
 }

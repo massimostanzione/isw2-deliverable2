@@ -44,22 +44,7 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
                 fileWriter.append(generateHeader(relationName, dataset.size(), dataset.get(0).size()));
                 fileWriter.append(ARFF_CONST_RELATION + "\t" + relationName + "\n\n" +
                         determineAttrTypes(dataset) + "\n" + ARFF_CONST_DATA + "\n");
-                Integer j = -1;
-                Integer l = -1;
-                Integer recordDim = dataset.get(0).size();
-                for (List<String> datasetRecord : dataset) {
-                    j++;
-                    l = -1;
-                    for (String value : datasetRecord) {
-                        l++;
-                        if (j > 0) {
-                            // Skip attributes (first row)
-                            fileWriter.append(value);
-                            fileWriter.append(l + 1 < recordDim ? "," : "\n");
-                        }
-                    }
-
-                }
+                loadAttrs(dataset);
             }
             fileWriter.close();
         } catch (IOException e) {
@@ -67,8 +52,26 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
         }
     }
 
+    private static void loadAttrs(List<List<String>> dataset) throws IOException {
+        Integer j = -1;
+        Integer l = -1;
+        Integer recordDim = dataset.get(0).size();
+        for (List<String> datasetRecord : dataset) {
+            j++;
+            l = -1;
+            for (String value : datasetRecord) {
+                l++;
+                if (j > 0) {
+                    // Skip attributes (first row)
+                    fileWriter.append(value);
+                    fileWriter.append(l + 1 < recordDim ? "," : "\n");
+                }
+            }
+        }
+    }
+
     private static String determineAttrTypes(List<List<String>> dataset) {
-        String ret = "";
+        StringBuilder sb = new StringBuilder();
         Integer i = -1;
         for (String attribute : dataset.get(0)) {
             i++;
@@ -77,9 +80,9 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
             if (i == dataset.get(0).size() - 1) {
                 attrType = ARFF_CONST_ATTRTYPE_BOOLEAN;
             }
-            ret += ARFF_CONST_ATTRIBUTE + "\t" + attribute + "\t" + attrType + "\n";
+            sb.append(ARFF_CONST_ATTRIBUTE).append("\t").append(attribute).append("\t").append(attrType).append("\n");
         }
-        return ret;
+        return sb.toString();
     }
 
     /**

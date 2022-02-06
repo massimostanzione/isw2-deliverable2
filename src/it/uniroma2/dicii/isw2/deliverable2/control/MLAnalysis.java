@@ -39,7 +39,6 @@ public class MLAnalysis {
     private static Logger log = LoggerInst.getSingletonInstance();
     private static String root = "./output/";
     private static String tr = "/dataset/training/TR";
-    private static String te = "/dataset/training/TE";
     private static String datasetStr = "/dataset/dataset.csv";
 
     private MLAnalysis() {

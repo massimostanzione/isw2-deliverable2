@@ -119,6 +119,9 @@ public class ProjectAnalyzer {
                 Measure m = mc.atVersion(v) == null ? new Measure(mc.getName(), v) : mc.atVersion(v);
                 Repository repository = workingCopy.getGit().getRepository();
                 TreeWalk treeWalk = new TreeWalk(repository);
+                Integer addedLOCs = 0;
+                Integer removedLOCs = 0;
+                ObjectLoader loader = null;
                 try {
                     treeWalk.addTree(currTree);
                     treeWalk.setRecursive(true);
@@ -127,21 +130,8 @@ public class ProjectAnalyzer {
                         treeWalk.close();
                         return;
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                ObjectId objectId = treeWalk.getObjectId(0);
-                ObjectLoader loader = null;
-                try {
+                    ObjectId objectId = treeWalk.getObjectId(0);
                     loader = repository.open(objectId);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Integer addedLOCs = 0;
-                Integer removedLOCs = 0;
-                try {
                     for (Edit edit : df.toFileHeader(diff).toEditList()) {
                         addedLOCs += edit.getEndB() - edit.getBeginB();
                         removedLOCs += edit.getEndA() - edit.getBeginA();
