@@ -22,6 +22,7 @@ import java.util.logging.Logger;
  * Class for ticket and bug handling, mainly fetching them from projects.
  */
 public class TicketBugHandler {
+    private static String root = "./output/";
     private static final Logger log = LoggerInst.getSingletonInstance();
 
     private TicketBugHandler() {
@@ -63,13 +64,7 @@ public class TicketBugHandler {
 
                     Ticket iteratedTicket = new Ticket(key, creat, res);
                     List<Version> convertedVersions = convertVersions(versions, versionList);
-                    // Sort tversions based on ID
-                    try {
-                        CollectionSorter.sort(convertedVersions, Version.class.getDeclaredMethod("getSortedID"));
-                    } catch (NoSuchMethodException | SecurityException e) {
-                        e.printStackTrace();
-                    }
-
+                    sortVersions(convertedVersions);
                     // Search for commits related to ticket
                     List<Commit> iteratedCommitList = CommitHandler.fetchCommitsRelatedToTicket(iteratedTicket, commitList);
                     log.finest(() -> "Ticket " + iteratedTicket.getId() + ": " + iteratedCommitList.size() + " commit(s) found.");
@@ -103,11 +98,20 @@ public class TicketBugHandler {
         } catch (NoSuchMethodException | SecurityException e) {
             e.printStackTrace();
         }
-        CSVExporterPrinter.getSingletonInstance().convertAndExport(tickets, "/output/" + projName + "/inspection/tickets.csv");
+        CSVExporterPrinter.getSingletonInstance().convertAndExport(tickets, root + projName + "/inspection/tickets.csv");
         log.info(() -> "- " + tickets.size() + " tickets found. ");
-        CSVExporterPrinter.getSingletonInstance().convertAndExport(bugList, "/output/" + projName + "/inspection/bugs.csv");
+        CSVExporterPrinter.getSingletonInstance().convertAndExport(bugList, root + projName + "/inspection/bugs.csv");
         printToGraphicVisualizer(projName, bugList, versionList);
         return bugList;
+    }
+
+    private static void sortVersions(List<Version> convertedVersions) {
+        // Sort tversions based on ID
+        try {
+            CollectionSorter.sort(convertedVersions, Version.class.getDeclaredMethod("getSortedID"));
+        } catch (NoSuchMethodException | SecurityException e) {
+            e.printStackTrace();
+        }
     }
 
     private static List<Version> convertVersions(JSONArray versions, List<Version> versionList) throws JSONException {
@@ -147,7 +151,7 @@ public class TicketBugHandler {
             gvRecord.setJIRACheck(errors);
             ret.add(gvRecord);
         }
-        CSVExporterPrinter.getSingletonInstance().convertAndExport(ret, "/output/" + projName + "/inspection/graphicBugLifecycleVisualizer.csv");
+        CSVExporterPrinter.getSingletonInstance().convertAndExport(ret, root + projName + "/inspection/graphicBugLifecycleVisualizer.csv");
     }
 
     private static String buildGVString(BugLifecycle bugLifecycle, Version v) {

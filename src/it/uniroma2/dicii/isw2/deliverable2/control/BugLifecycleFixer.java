@@ -80,17 +80,18 @@ public class BugLifecycleFixer {
     /**
      * If FV are found into the AVs, remove it.
      *
-     * @param bl lifecycle of a bug
-     * @return lifecycle of a bug, with FV removed from AVs.
+     * @param list list of AVs
+     * @param fv   fix version
+     * @return AVs of a bug, with FV removed from AVs.
      */
-    public static BugLifecycle removeFVfromAVs(BugLifecycle bl) {
-        for (Version v : bl.getAVs()) {
-            if (v.getVersionDate().equals(bl.getFV().getVersionDate())) {
-                bl.getAVs().remove(v);
-                return bl;
+    public static List<Version> removeFVfromAVs(List<Version> list, Version fv) {
+        for (Version v : list) {
+            if (v.getVersionDate().equals(fv.getVersionDate())) {
+                list.remove(v);
+                return list;
             }
         }
-        return bl;
+        return list;
     }
 
     /**
@@ -112,9 +113,9 @@ public class BugLifecycleFixer {
     public static BugLifecycle computeBugLifecycle(Double proportionAvgNum, Integer n, List<Version> jiraVersions, Ticket iteratedTicket,
                                                    List<Version> versionList, LabelingMethod avPredMethod) throws VersionException {
         BugLifecycle bl = new BugLifecycle();
-        Version iv = new Version();
-        Version ov = new Version();
-        Version fv = new Version();
+        Version iv;
+        Version ov;
+        Version fv;
         List<Version> av = new ArrayList<>();
 
         // (1) Compute FV and OV
@@ -145,7 +146,7 @@ public class BugLifecycleFixer {
             bl.setAVs(av);
             bl.setJIRACheck(BugLifecycleFixer.checkConsistency(bl));
             BugLifecycle correctedBl = correctJIRAErrors(bl, versionList);
-            bl=correctedBl;
+            bl = correctedBl;
             if (fv.getSortedID() > ov.getSortedID() && ov.getSortedID() > iv.getSortedID()) {
                 bl.setProportionContribute((float) (fv.getSortedID() - iv.getSortedID()) / (fv.getSortedID() - ov.getSortedID()));
                 return bl;
@@ -190,10 +191,10 @@ public class BugLifecycleFixer {
                     return bl;
                 case AVS_NOT_CONSISTENT:
                 case AV_AFTER_FV:
-                    bl = fillSimpleLikeAVs(bl, versionList);
+                    bl.setAVs(VersionHandler.getVersionsBetween(bl.getIV(), bl.getFV(), versionList));
                     break;
                 case FV_AS_AV:
-                    bl = removeFVfromAVs(bl);
+                    bl.setAVs(removeFVfromAVs(bl.getAVs(),bl.getFV()));
                     break;
                 case IV_AFTER_OV:
                     // Worst case: it is not possible, in any way, to obtain information from JIRA.
@@ -210,10 +211,10 @@ public class BugLifecycleFixer {
             if (Boolean.TRUE.equals(needsPrediction)) {
                 bl.setIVPredictionNeeded(true);
                 bl.setProportionContribute(0);
+                break;
             } else {
                 bl.setIVPredictionNeeded(false);
             }
-            break;
         }
         return bl;
     }

@@ -40,6 +40,7 @@ public class MLAnalysis {
     private static String root = "./output/";
     private static String tr = "/dataset/training/TR";
     private static String datasetStr = "/dataset/dataset.csv";
+    private static String projName = "";
 
     private MLAnalysis() {
     }
@@ -50,6 +51,7 @@ public class MLAnalysis {
      * @throws Exception
      */
     public static void performWekaMLAnalysis(Project p) throws Exception {
+        projName = p.getName();
         log.info(() -> "Running Weka ML analysis. It may take a while, please wait...");
         String projName = p.getName();
         List<Version> versionList = p.getVersionList();
@@ -91,7 +93,8 @@ public class MLAnalysis {
                 for (FeatureSelectionMethod fs : featureSelectionMethods) {
                     for (Sampling sam : samplingMethods) {
                         for (CostSensitive cs : costSensitiveMethods) {
-                            mlAnalysis.add(runAnalysisExecutive(cl, fs, sam, cs, trainInst, testInst, index, versionList, projName));
+                            Instances[] insts = {trainInst, testInst};
+                            mlAnalysis.add(runAnalysisExecutive(cl, fs, sam, cs, insts, index, versionList));
                         }
                     }
                 }
@@ -101,8 +104,10 @@ public class MLAnalysis {
         log.info(() -> "- Weka ML analysis terminated.");
     }
 
-    private static MLRecord runAnalysisExecutive(Classifier cl, FeatureSelectionMethod fs, Sampling sam, CostSensitive cs, Instances trainInst, Instances testInst,
-                                                 int index, List<Version> versionList, String projName) throws Exception {
+    private static MLRecord runAnalysisExecutive(Classifier cl, FeatureSelectionMethod fs, Sampling sam, CostSensitive cs, Instances[] insts,
+                                                 int index, List<Version> versionList) throws Exception {
+        Instances trainInst = insts[0];
+        Instances testInst = insts[1];
         int finalIndex = index;
         log.fine(() -> versionList.get(finalIndex - 1).getName() + "\t" + fs.getClass().getSimpleName() + "\t\t\t" + cs.getClass().getSimpleName() + "\t\t\t" + cl.getClass().getSimpleName());
 
