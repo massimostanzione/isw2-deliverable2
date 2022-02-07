@@ -39,19 +39,19 @@ public class TicketBugHandler {
         Double proportionAvgNum = 1.0;
         ArrayList<Ticket> tickets = new ArrayList<>();
         List<Bug> bugList = new ArrayList<>();
-        do {
-            j = i + 1000;
-            // Build a JIRA Query to found all the tickets related to the project
-            JIRAQuery q = new JIRAQuery(JIRAQueryType.JIRA_QUERY_TYPE_SEARCH);
-            q.getJqlQuery().setProjectName(projName);
-            q.getJqlQuery().setIssueType(JQLQuery.JQL_ISSUE_TYPE_BUG);
-            q.getJqlQuery().setStatus(JQLQuery.JQL_STATUS_CLOSED, JQLQuery.JQL_STATUS_RESOLVED, JQLQuery.JQL_STATUS_DONE);
-            q.getJqlQuery().setResolution(JQLQuery.JQL_RESOLUTION_FIXED, JQLQuery.JQL_RESOLUTION_DONE);
-            q.setFields(JQLQuery.JQL_FIELD_KEY, JQLQuery.JQL_FIELD_RESOLUTIONDATE, JQLQuery.JQL_FIELD_VERSIONS, JQLQuery.JQL_FIELD_FIXVERSIONS, JQLQuery.JQL_FIELD_CREATED);
-            q.setStartAt(i);
-            q.setMaxResults(j);
-            String url = q.compose().toString();
-            try {
+        try {
+            do {
+                j = i + 1000;
+                // Build a JIRA Query to found all the tickets related to the project
+                JIRAQuery q = new JIRAQuery(JIRAQueryType.JIRA_QUERY_TYPE_SEARCH);
+                q.getJqlQuery().setProjectName(projName);
+                q.getJqlQuery().setIssueType(JQLQuery.JQL_ISSUE_TYPE_BUG);
+                q.getJqlQuery().setStatus(JQLQuery.JQL_STATUS_CLOSED, JQLQuery.JQL_STATUS_RESOLVED, JQLQuery.JQL_STATUS_DONE);
+                q.getJqlQuery().setResolution(JQLQuery.JQL_RESOLUTION_FIXED, JQLQuery.JQL_RESOLUTION_DONE);
+                q.setFields(JQLQuery.JQL_FIELD_KEY, JQLQuery.JQL_FIELD_RESOLUTIONDATE, JQLQuery.JQL_FIELD_VERSIONS, JQLQuery.JQL_FIELD_FIXVERSIONS, JQLQuery.JQL_FIELD_CREATED);
+                q.setStartAt(i);
+                q.setMaxResults(j);
+                String url = q.compose().toString();
                 JSONObject json = JSONHandler.readJsonFromUrl(url);
                 JSONArray issues = json.getJSONArray("issues");
                 total = json.getInt("total");
@@ -84,19 +84,15 @@ public class TicketBugHandler {
                     tickets.add(iteratedTicket);
                     i++;
                 }
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-        } while (i < total);
+            } while (i < total);
 
-        Double finalMatchedTickets = matchedTickets;
-        log.info(() -> "- Linkage probability = " + (finalMatchedTickets / tickets.size()));
+            Double finalMatchedTickets = matchedTickets;
+            log.info(() -> "- Linkage probability = " + (finalMatchedTickets / tickets.size()));
 
-        // Sort tickets and bugs by their creation date
-        try {
+            // Sort tickets and bugs by their creation date
             CollectionSorter.sort(tickets, Ticket.class.getDeclaredMethod("getCreationTimestamp"));
             CollectionSorter.sort(bugList, Bug.class.getDeclaredMethod("getCreationTimestamp"));
-        } catch (NoSuchMethodException | SecurityException e) {
+        } catch (NoSuchMethodException | SecurityException | JSONException | IOException e) {
             e.printStackTrace();
         }
         CSVExporterPrinter.getSingletonInstance().convertAndExport(tickets, root + projName + "/inspection/tickets.csv");
