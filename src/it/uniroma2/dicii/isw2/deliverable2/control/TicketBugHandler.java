@@ -4,6 +4,7 @@ import it.uniroma2.dicii.isw2.deliverable2.entities.*;
 import it.uniroma2.dicii.isw2.deliverable2.entities.jql.JIRAQuery;
 import it.uniroma2.dicii.isw2.deliverable2.entities.jql.JIRAQueryType;
 import it.uniroma2.dicii.isw2.deliverable2.entities.jql.JQLQuery;
+import it.uniroma2.dicii.isw2.deliverable2.enumerations.JIRAAffectedVersionsCheck;
 import it.uniroma2.dicii.isw2.deliverable2.enumerations.LabelingMethod;
 import it.uniroma2.dicii.isw2.deliverable2.exceptions.VersionException;
 import it.uniroma2.dicii.isw2.deliverable2.io.CSVExporterPrinter;

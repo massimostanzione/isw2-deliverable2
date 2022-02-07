@@ -1,4 +1,4 @@
-package it.uniroma2.dicii.isw2.deliverable2.control;
+package it.uniroma2.dicii.isw2.deliverable2.enumerations;
 
 /**
  * Every possible result among those considered for the analysis of the AVs

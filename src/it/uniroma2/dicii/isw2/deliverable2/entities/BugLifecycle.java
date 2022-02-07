@@ -1,6 +1,6 @@
 package it.uniroma2.dicii.isw2.deliverable2.entities;
 
-import it.uniroma2.dicii.isw2.deliverable2.control.JIRAAffectedVersionsCheck;
+import it.uniroma2.dicii.isw2.deliverable2.enumerations.JIRAAffectedVersionsCheck;
 
 import java.util.ArrayList;
 import java.util.List;

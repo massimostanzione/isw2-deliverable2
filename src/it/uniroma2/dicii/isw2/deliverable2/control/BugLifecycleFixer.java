@@ -3,6 +3,7 @@ package it.uniroma2.dicii.isw2.deliverable2.control;
 import it.uniroma2.dicii.isw2.deliverable2.entities.BugLifecycle;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Ticket;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Version;
+import it.uniroma2.dicii.isw2.deliverable2.enumerations.JIRAAffectedVersionsCheck;
 import it.uniroma2.dicii.isw2.deliverable2.enumerations.LabelingMethod;
 import it.uniroma2.dicii.isw2.deliverable2.exceptions.VersionException;
 import it.uniroma2.dicii.isw2.deliverable2.utils.LoggerInst;
