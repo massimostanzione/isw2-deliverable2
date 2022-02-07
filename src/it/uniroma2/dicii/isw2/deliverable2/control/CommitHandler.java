@@ -60,7 +60,7 @@ public class CommitHandler {
         try {
             CollectionSorter.sort(allClasses, MeasuredClass.class.getDeclaredMethod("getName"));
         } catch (NoSuchMethodException | SecurityException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         log.info(() -> "- " + allClasses.size() + " unique classes found. They will be filtered later.");
         return allClasses;

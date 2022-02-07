@@ -98,7 +98,7 @@ public class ProjectAnalyzer {
                     currTree = iteratedCommit.getReferredRawCommit().getTree();
                     diffEntries = df.scan(iteratedCommit.getReferredRawCommit().getParent(0).getTree(), currTree);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.severe(e.getMessage());
                 }
                 for (DiffEntry diff : diffEntries) {
                     if (diff.getNewPath().contains(".java")) {
@@ -137,7 +137,7 @@ public class ProjectAnalyzer {
                         removedLOCs += edit.getEndA() - edit.getBeginA();
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    log.severe(e.getMessage());
                 }
                 // Compute/update metrics
                 Integer[] locs = {addedLOCs, removedLOCs};

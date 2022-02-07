@@ -163,7 +163,7 @@ public class BugLifecycleFixer {
         try {
             bl = predict(bl, avPredMethod, versionList, proportionAvgNum, n);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         if (bl != null) {
             iv = bl.getIV();

@@ -138,7 +138,7 @@ public class GitHubMiddleware {
         try {
             diffEntryList = df.scan(prevCommit, fixCommit);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         for (DiffEntry diff : diffEntryList) {
             // Discard all non-java files
@@ -165,7 +165,7 @@ public class GitHubMiddleware {
                     objId = tag.getObjectId();
                     if (objId == null) return null;
                 } catch (NullPointerException e) {
-                    e.printStackTrace();
+                    log.severe(e.getMessage());
                 }
                 return objId.getName();
             }

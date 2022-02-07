@@ -61,7 +61,7 @@ public class VersionHandler {
             // Sort versions by their release date
             CollectionSorter.sort(versionList, Version.class.getDeclaredMethod("getVersionDate"));
         } catch (IOException | JSONException | ParseException | NoSuchMethodException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         for (Integer j = 0; j < versionList.size(); j++) {
             versionList.get(j).setSortedID(j + 1);

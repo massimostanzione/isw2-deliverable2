@@ -48,7 +48,7 @@ public class ARFFExporterPrinter extends ExporterPrinter implements Exporter {
             }
             fileWriter.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
     }
 

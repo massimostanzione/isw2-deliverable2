@@ -93,7 +93,7 @@ public class TicketBugHandler {
             CollectionSorter.sort(tickets, Ticket.class.getDeclaredMethod("getCreationTimestamp"));
             CollectionSorter.sort(bugList, Bug.class.getDeclaredMethod("getCreationTimestamp"));
         } catch (NoSuchMethodException | SecurityException | JSONException | IOException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         CSVExporterPrinter.getSingletonInstance().convertAndExport(tickets, root + projName + "/inspection/tickets.csv");
         log.info(() -> "- " + tickets.size() + " tickets found. ");
@@ -115,7 +115,7 @@ public class TicketBugHandler {
         try {
             CollectionSorter.sort(convertedVersions, Version.class.getDeclaredMethod("getSortedID"));
         } catch (NoSuchMethodException | SecurityException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
     }
 
@@ -128,7 +128,7 @@ public class TicketBugHandler {
             try {
                 v = VersionHandler.getVersionByName(versionName, versionList);
             } catch (VersionException e) {
-                e.printStackTrace();
+                log.severe(e.getMessage());
             }
             convertedVersions.add(v);
         }
@@ -197,7 +197,7 @@ public class TicketBugHandler {
         } catch (VersionException e) {
             return null;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         return b;
     }

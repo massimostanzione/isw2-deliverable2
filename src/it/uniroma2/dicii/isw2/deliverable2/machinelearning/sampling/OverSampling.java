@@ -1,15 +1,20 @@
 package it.uniroma2.dicii.isw2.deliverable2.machinelearning.sampling;
 
+import it.uniroma2.dicii.isw2.deliverable2.utils.LoggerInst;
 import weka.classifiers.Classifier;
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.filters.supervised.instance.Resample;
 
+import java.util.logging.Logger;
+
 /**
  * OverSampling technique.
  */
 public class OverSampling implements Sampling {
+    private static final Logger log = LoggerInst.getSingletonInstance();
+
     private double computeMajority(Instances insts) {
         Integer trueVals = 0;
         Integer falseVals = 0;
@@ -30,7 +35,7 @@ public class OverSampling implements Sampling {
         try {
             resample.setInputFormat(insts);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         // Equivalent to "-B" option
         resample.setBiasToUniformClass(1.0);

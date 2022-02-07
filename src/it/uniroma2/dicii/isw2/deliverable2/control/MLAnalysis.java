@@ -192,7 +192,7 @@ public class MLAnalysis {
             minClassLines = Files.readAllLines(Paths.get(minClass));
             totLines = Files.readAllLines(Paths.get(total));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
         Integer trueCnt = 0;
         Integer totLinesCnt = totLines.size() - 1;

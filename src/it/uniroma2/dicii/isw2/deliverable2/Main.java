@@ -2,14 +2,17 @@ package it.uniroma2.dicii.isw2.deliverable2;
 
 import it.uniroma2.dicii.isw2.deliverable2.entities.Project;
 import it.uniroma2.dicii.isw2.deliverable2.enumerations.LabelingMethod;
+import it.uniroma2.dicii.isw2.deliverable2.utils.LoggerInst;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Utility class, as a "start point" for the program.
  */
 public class Main {
+    private static final Logger log = LoggerInst.getSingletonInstance();
 
     public static void main(String[] args) {
         Project p1 = new Project("BOOKKEEPER", "https://github.com/apache/bookkeeper", "release-4.13.0");
@@ -21,7 +24,7 @@ public class Main {
             try {
                 new ProjectAnalyzer(beingAnalyzed.get(i), LabelingMethod.PROPORTION_INCREMENTAL).run();
             } catch (Exception e) {
-                e.printStackTrace();
+                log.severe(e.getMessage());
             }
         }
     }

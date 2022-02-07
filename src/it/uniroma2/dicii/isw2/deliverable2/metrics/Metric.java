@@ -3,11 +3,13 @@ package it.uniroma2.dicii.isw2.deliverable2.metrics;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Commit;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Measure;
 import it.uniroma2.dicii.isw2.deliverable2.entities.MeasuredClass;
+import it.uniroma2.dicii.isw2.deliverable2.utils.LoggerInst;
 import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.lib.ObjectLoader;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * A single metric, to be specialized.
@@ -15,6 +17,7 @@ import java.io.IOException;
 public abstract class Metric {
     protected String datasetName;
     protected Float value = Float.valueOf(0);
+    private static final Logger log = LoggerInst.getSingletonInstance();
 
     protected Metric() {
         this.datasetName = this.initDatasetName();
@@ -67,7 +70,7 @@ public abstract class Metric {
         try {
             this.setValue(this.compute(measure, mc, commit, loader, df, diff, locs));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.severe(e.getMessage());
         }
     }
 
