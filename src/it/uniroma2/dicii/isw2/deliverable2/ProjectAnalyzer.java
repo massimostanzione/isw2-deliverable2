@@ -116,7 +116,7 @@ public class ProjectAnalyzer {
         for (MeasuredClass mc : allClasses) {
             // if class is touched by commit
             if (mc.getName().equals(diff.getNewPath())) {
-                Measure m = mc.atVersion(v) == null ? new Measure(mc.getName(), v) : mc.atVersion(v);
+                Measure m = getMeasureInstance(mc, v);
                 Repository repository = workingCopy.getGit().getRepository();
                 TreeWalk treeWalk = new TreeWalk(repository);
                 Integer addedLOCs = 0;
@@ -152,9 +152,13 @@ public class ProjectAnalyzer {
         }
     }
 
+    private Measure getMeasureInstance(MeasuredClass mc, Version v) {
+        return mc.atVersion(v) == null ? new Measure(mc.getName(), v) : mc.atVersion(v);
+    }
+
     private Boolean postMeasureCheck(Boolean buggy, MeasuredClass mc, Commit iteratedCommit) {
         if (Boolean.FALSE.equals(buggy)) {
-             return checkBugginess(mc, iteratedCommit);
+            return checkBugginess(mc, iteratedCommit);
         }
         return true;
     }

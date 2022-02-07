@@ -3,7 +3,6 @@ package it.uniroma2.dicii.isw2.deliverable2.metrics;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Commit;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Measure;
 import it.uniroma2.dicii.isw2.deliverable2.entities.MeasuredClass;
-import it.uniroma2.dicii.isw2.deliverable2.entities.Version;
 import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.lib.ObjectLoader;
@@ -29,6 +28,6 @@ public class LOCTouched extends Metric {
     public Float compute(Measure m, MeasuredClass mc, Commit commit, ObjectLoader loader, DiffFormatter df,
                          DiffEntry diff, Integer[] locs)
             throws IOException {
-        return (float) (locs[0]+locs[1]);
+        return (float) (locs[0] + locs[1]);
     }
 }

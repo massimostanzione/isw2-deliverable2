@@ -3,7 +3,6 @@ package it.uniroma2.dicii.isw2.deliverable2.metrics;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Commit;
 import it.uniroma2.dicii.isw2.deliverable2.entities.Measure;
 import it.uniroma2.dicii.isw2.deliverable2.entities.MeasuredClass;
-import it.uniroma2.dicii.isw2.deliverable2.entities.Version;
 import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.diff.DiffFormatter;
 import org.eclipse.jgit.lib.ObjectLoader;

@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  * Class for ticket and bug handling, mainly fetching them from projects.
  */
 public class TicketBugHandler {
-    private static String root = "./output/";
+    private static String root = "/output/";
     private static final Logger log = LoggerInst.getSingletonInstance();
 
     private TicketBugHandler() {
@@ -55,7 +55,7 @@ public class TicketBugHandler {
                 JSONObject json = JSONHandler.readJsonFromUrl(url);
                 JSONArray issues = json.getJSONArray("issues");
                 total = json.getInt("total");
-                for (; i < total && i < j; i++) {
+                while (nextTicket(i, j, total)) {
                     // Iterate through each ticket
                     String key = issues.getJSONObject(i % 1000).get(JQLQuery.JQL_FIELD_KEY).toString();
                     String creat = issues.getJSONObject(i % 1000).getJSONObject(JQLQuery.JQL_FIELDS).get(JQLQuery.JQL_FIELD_CREATED).toString();
@@ -82,6 +82,7 @@ public class TicketBugHandler {
                         }
                     }
                     tickets.add(iteratedTicket);
+                    i++;
                 }
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
@@ -103,6 +104,10 @@ public class TicketBugHandler {
         CSVExporterPrinter.getSingletonInstance().convertAndExport(bugList, root + projName + "/inspection/bugs.csv");
         printToGraphicVisualizer(projName, bugList, versionList);
         return bugList;
+    }
+
+    private static boolean nextTicket(Integer i, Integer j, Integer total) {
+        return i < total && i < j;
     }
 
     private static Integer checkIfIVPredictionNeeded(BugLifecycle bugLifecycle) {
