@@ -57,6 +57,14 @@ public class BugLifecycleFixer {
         return errors;
     }
 
+    /**
+     * Given a bug lifecycle and an ordinal, find if the lifecycle contains version whose ordinal
+     * number is equal to the given one.
+     *
+     * @param bl bug lifecycle
+     * @param i  ordinal version number
+     * @return <code>true</code> if found, <code>false</code> elsewhere.
+     */
     private static Boolean findVersionInBugAV(BugLifecycle bl, Integer i) {
         for (Version v : bl.getAVs()) {
             if (v.getSortedID().equals(i)) {
@@ -183,6 +191,14 @@ public class BugLifecycleFixer {
         return bl;
     }
 
+    /**
+     * Given a bug lifecycle, correct its errors, if any.
+     *
+     * @param bl          bug lifecycle
+     * @param versionList version list
+     * @return <code>bl</code> with JIRA errors corrected, if any.
+     * @throws VersionException
+     */
     private static BugLifecycle correctJIRAErrors(BugLifecycle bl, List<Version> versionList) throws VersionException {
         Boolean needsPrediction = false;
         for (Integer i = 0; i < bl.getJIRACheck().size(); i++) {
@@ -197,7 +213,7 @@ public class BugLifecycleFixer {
                     bl.setAVs(VersionHandler.getVersionsBetween(bl.getIV(), bl.getFV(), versionList));
                     break;
                 case FV_AS_AV:
-                    bl.setAVs(removeFVfromAVs(bl.getAVs(),bl.getFV()));
+                    bl.setAVs(removeFVfromAVs(bl.getAVs(), bl.getFV()));
                     break;
                 case IV_AFTER_OV:
                     // Worst case: it is not possible, in any way, to obtain information from JIRA.
@@ -222,6 +238,17 @@ public class BugLifecycleFixer {
         return bl;
     }
 
+    /**
+     * Predict version(s), when needed.
+     *
+     * @param bl               bug lifecycle
+     * @param avPredMethod     prediction method
+     * @param versionList      version list
+     * @param proportionAvgNum for proportion computation
+     * @param n                for proportion computation
+     * @return <code>bl</code> with predicted version(s)
+     * @throws VersionException
+     */
     private static BugLifecycle predict(BugLifecycle bl, LabelingMethod avPredMethod, List<Version> versionList,
                                         double proportionAvgNum, double n) throws VersionException {
         Version iv = bl.getIV();

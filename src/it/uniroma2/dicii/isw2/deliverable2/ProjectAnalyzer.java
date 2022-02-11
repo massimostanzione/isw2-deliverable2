@@ -111,6 +111,16 @@ public class ProjectAnalyzer {
         CSVExporterPrinter.getSingletonInstance().convertAndExport(inspList, root + projName + "/inspection/touchedClassesInsp.csv");
     }
 
+    /**
+     * Actively execute class measuring
+     *
+     * @param diff           <code>DiffEntry</code> examined
+     * @param v              version considered
+     * @param currTree       <code>RevTree</code> examined
+     * @param workingCopy    reference to the working copy
+     * @param df             formatter
+     * @param iteratedCommit commit examined
+     */
     private void examineClass(DiffEntry diff, Version v, RevTree currTree, GitWorkingCopy workingCopy,
                               DiffFormatter df, Commit iteratedCommit) {
         for (MeasuredClass mc : allClasses) {
@@ -152,10 +162,25 @@ public class ProjectAnalyzer {
         }
     }
 
+    /**
+     * Given a class and a version, retrieve the measure for it, or instance a new one if not found
+     *
+     * @param mc class
+     * @param v  version
+     * @return the measure for <code>mc</code> at <code>v</code>, if any, or a new instance of it elsewhere
+     */
     private Measure getMeasureInstance(MeasuredClass mc, Version v) {
         return mc.atVersion(v) == null ? new Measure(mc.getName(), v) : mc.atVersion(v);
     }
 
+    /**
+     * Set bugginess value for a class, at the end of the measuring operations.
+     *
+     * @param buggy          <code>true</code> if considered class is buggy
+     * @param mc             considered class
+     * @param iteratedCommit commit to be checked
+     * @return <code>true</code> if <code>mc</code> is buggy at <code>v</code>.
+     */
     private Boolean postMeasureCheck(Boolean buggy, MeasuredClass mc, Commit iteratedCommit) {
         if (Boolean.FALSE.equals(buggy)) {
             return checkBugginess(mc, iteratedCommit);
@@ -227,6 +252,14 @@ public class ProjectAnalyzer {
         return false;
     }
 
+    /**
+     * For inspection purpose only.
+     *
+     * @param b           bug
+     * @param check       touching commit
+     * @param mc          class
+     * @param versionList version list
+     */
     private void compileBugInspection(Bug b, Commit check, MeasuredClass mc, List<Version> versionList) {
         for (Version ve : versionList) {
             for (Version bugAV : b.getBugLifecycle().getAVs()) {

@@ -37,10 +37,6 @@ public class VersionHandler {
 
     /**
      * Uses a JIRA Query to fetch all the versions of the project.
-     * Versions discarded:
-     * (a) versions without release date;
-     * (b) versions in a "not final" status, like <i>beta</i> versions;
-     * (c) versions not matched in the GitHub repository.
      *
      * @param projName project name
      * @param wc       working copy
@@ -71,8 +67,22 @@ public class VersionHandler {
         return versionList;
     }
 
+    /**
+     * Discard non-usable versions.
+     * <p>
+     * Versions discarded:
+     * (a) versions without release date;
+     * (b) versions in a "not final" status, like <i>beta</i> versions;
+     * (c) versions not matched in the GitHub repository.
+     *
+     * @param versions versions to be filtered
+     * @param wc       reference to the working copy
+     * @return not discarded (usable) versions
+     * @throws JSONException
+     * @throws ParseException
+     */
     private static List<Version> filterVersions(JSONArray versions, GitWorkingCopy wc) throws JSONException, ParseException {
-        String message="- Skipping version ";
+        String message = "- Skipping version ";
         List<Version> filteredVersionList = new ArrayList<>();
         for (int i = 0; i < versions.length(); i++) {
             String name = "";
@@ -103,6 +113,14 @@ public class VersionHandler {
         return filteredVersionList;
     }
 
+    /**
+     * Retrieve version name within a JIRA array
+     *
+     * @param versions JIRA array
+     * @param i        index
+     * @return version name, if any
+     * @throws JSONException
+     */
     private static String retrieveName(JSONArray versions, int i) throws JSONException {
         if (versions.getJSONObject(i).has("name"))
             return versions.getJSONObject(i).get("name").toString();

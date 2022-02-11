@@ -104,6 +104,19 @@ public class MLAnalysis {
         log.info(() -> "- Weka ML analysis terminated.");
     }
 
+    /**
+     * Operatively execute ML analysis
+     *
+     * @param cl          classifier
+     * @param fs          feature selection
+     * @param sam         sampling method
+     * @param cs          cost sensitive method
+     * @param insts       training and testing instances
+     * @param index       version index
+     * @param versionList version list
+     * @return a ML record containing the execution results
+     * @throws Exception
+     */
     private static MLRecord runAnalysisExecutive(Classifier cl, FeatureSelectionMethod fs, Sampling sam, CostSensitive cs, Instances[] insts,
                                                  int index, List<Version> versionList) throws Exception {
         Instances trainInst = insts[0];
@@ -196,7 +209,7 @@ public class MLAnalysis {
         }
         Integer trueCnt = 0;
         Integer totLinesCnt = totLines.size() - 1;
-        for (var i = 0; i < minClassLines.size(); i++) {
+        for (int i = 0; i < minClassLines.size(); i++) {
             if (minClassLines.get(i).contains("true"))
                 trueCnt += 1;
         }

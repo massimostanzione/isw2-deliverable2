@@ -103,14 +103,33 @@ public class TicketBugHandler {
         return bugList;
     }
 
+    /**
+     * Condition to check while examinating JIRA tickets
+     *
+     * @param i     index
+     * @param j     index
+     * @param total number of tickets
+     * @return
+     */
     private static boolean nextTicket(Integer i, Integer j, Integer total) {
         return i < total && i < j;
     }
 
+    /**
+     * Given a bug lifecycle, check if IV prediction is needed.
+     *
+     * @param bugLifecycle bug lifecycle
+     * @return value to sum to prediction value
+     */
     private static Integer checkIfIVPredictionNeeded(BugLifecycle bugLifecycle) {
         return bugLifecycle.isIVPredicionNeeded() ? 0 : 1;
     }
 
+    /**
+     * Utility method to sort analyzed versions
+     *
+     * @param convertedVersions versions to be sorted
+     */
     private static void sortVersions(List<Version> convertedVersions) {
         // Sort tversions based on ID
         try {
@@ -120,6 +139,14 @@ public class TicketBugHandler {
         }
     }
 
+    /**
+     * Convert versions retrieved by JIRA to <code>Version</code> versions.
+     *
+     * @param versions    versions obtained frm JIRA
+     * @param versionList version list
+     * @return converted version
+     * @throws JSONException
+     */
     private static List<Version> convertVersions(JSONArray versions, List<Version> versionList) throws JSONException {
         // Convert versions
         List<Version> convertedVersions = new ArrayList<>();
@@ -160,6 +187,13 @@ public class TicketBugHandler {
         CSVExporterPrinter.getSingletonInstance().convertAndExport(ret, root + projName + "/inspection/graphicBugLifecycleVisualizer.csv");
     }
 
+    /**
+     * Build strings to be used into the graphic bug lifecycle visualizer
+     *
+     * @param bugLifecycle bug lifecycle
+     * @param v            version
+     * @return a string, ready-to-use for the graphic bug lifecycle visualizer
+     */
     private static String buildGVString(BugLifecycle bugLifecycle, Version v) {
         String val = "";
         if (bugLifecycle.getIV().equals(v)) {
